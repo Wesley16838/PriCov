@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 import Header from './components/headerComponent/header'
 import Footer from './components/footerComponent/footer'
 import Landingpage from './components/pages/landingPage'
+import LinkList from './components/Apollo-test/LinkList'
+import CreateUser from './components/Apollo-test/CreateUser'
 
 
 //includes
@@ -16,6 +18,8 @@ class App extends Component {
       <div className="App">
         <Header/>
         <Landingpage/>
+        {/* <LinkList/> */}
+        <CreateUser/>
         <Footer/>
       </div>
     )
