@@ -4,7 +4,9 @@ class Footer extends Component {
   render() {
     return(
       <footer>
-          <div className="foot"></div>
+          <div className="copyright">
+            <h4>© 2018 Copyright : PriCov</h4>
+          </div>
       </footer>
     )
   }
