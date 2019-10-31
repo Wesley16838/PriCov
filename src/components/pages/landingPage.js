@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route,NavLink } from "react-router-dom"
 import PieChart from './../charts/pieChart'
+import DonutChart from './../charts/donutChart'
 class Landingpage extends Component {
   
   render() {
@@ -12,9 +13,9 @@ class Landingpage extends Component {
             <h1>PriCov visualizes price comparison</h1>
             <h2>Users save money &amp; time</h2>
             <div className="landing-header-btn">
-              <Link className="basicBtn_reverse" to="/Signup">
+              <NavLink className="basicBtn_reverse" to="/Signup">
                 <h3>Get Started</h3>
-              </Link>
+              </NavLink>
             </div>
           </section>
           <section></section>
@@ -43,11 +44,8 @@ class Landingpage extends Component {
           </section>
          
             <PieChart/>
-            
+            <DonutChart/>
    
-          <section>
-            
-          </section>
           <section>
             
           </section>

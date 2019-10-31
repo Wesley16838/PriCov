@@ -5,7 +5,7 @@ class signinpage extends Component {
     return(
       
           <div className="container">
-            <h1>Sign iN Page</h1>
+            <h1>Sign in Page</h1>
           </div>
 
     )

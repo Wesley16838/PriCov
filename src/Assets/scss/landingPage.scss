@@ -103,4 +103,38 @@
             }
         }
     }
+    section:nth-child(3){
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid #BCBCBC;
+        width: 100%;
+        height: 600px;
+        .landing-body-third-part1,.landing-body-third-part2{
+            width:50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            h2{
+                margin-bottom:70px;
+            }
+            h4{
+               margin:auto;
+               margin-right:60px;
+
+            }
+            .product-list{
+                display: flex;
+                flex-direction: row;
+                align-self:center;
+                justify-content: space-between;
+                margin-bottom:50px;
+                span{
+                    display: flex;
+
+                }
+            }
+        }
+    }
 }
