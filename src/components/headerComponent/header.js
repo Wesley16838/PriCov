@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom"
 
 class Header extends Component {
   render() {
+    console.log('location',window.location.pathname)
     return(
       <header>
         <div className="logo">
@@ -13,9 +14,14 @@ class Header extends Component {
         <nav>
             <ul>
                 <li>
+                  
+                 
                   <Link className="basicBtn" to="/Signin">
                     Sign In
                   </Link>
+                 
+                  
+                 
                 </li>
             </ul>
         </nav>

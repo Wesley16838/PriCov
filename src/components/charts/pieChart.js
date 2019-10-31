@@ -7,18 +7,17 @@ class PieChart extends React.Component{
         super();
         this.ref = createRef();
         this.state={
-            data:{Amazon:20,BestBuy:30,Target:50}//fake data
+            data:props.data//fake data
         }
     }
     componentDidMount(){
-        console.log('in componentdid mount')
+        
         this.draw();
     }
 
     draw(){
         
-        console.log('in draw')
-        console.log('width,',this.ref.current.parentElement.clientWidth)
+        
         const svg = d3.select(this.ref.current);
         const data = this.state.data;
         

@@ -27,7 +27,6 @@ class App extends Component {
       <Router>
          <div className="App">
           <Header/>
-          <Getstatistic/>
           <Switch>
             <Route exact path="/" component={Landingpage}></Route>
             <Route path="/signin/" component={SigninContainer} />

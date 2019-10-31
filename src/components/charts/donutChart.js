@@ -2,11 +2,13 @@ import React, {createRef,Component} from 'react';
 import * as d3 from 'd3';
 
 class DonutChart extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.ref = createRef();
+        // console.log('props.data',props.data)
         this.state={
-            data:{CellPhone:50,Laptop:40,PhoneCase:30}//fake data
+            // data:{CellPhone:50,Laptop:40,PhoneCase:30}//fake data
+            data:props.data
         }
     }
     componentDidMount(){
@@ -22,7 +24,7 @@ class DonutChart extends React.Component{
 
         // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
         var radius = Math.min(width, height) / 2 - margin
-        console.log('radius,',radius);
+       
         // append the svg object to the div called 'my_dataviz'
         var svg = d3.select(this.ref.current)
         

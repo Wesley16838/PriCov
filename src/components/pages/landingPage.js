@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route,NavLink } from "react-router-dom"
-import PieChart from './../charts/pieChart'
-import DonutChart from './../charts/donutChart'
+
+import Getstatus from'./../charts/Getstatus'
+import Getstatistic from'./../charts/Getstatistic'
 class Landingpage extends Component {
   
   render() {
@@ -42,9 +43,9 @@ class Landingpage extends Component {
               <p>PriCov tracks prices from popular e-commerce sites so users can view price history for specific products.</p>
             </div>
           </section>
-         
-            <PieChart/>
-            <DonutChart/>
+
+           <Getstatus/>
+           <Getstatistic/>
    
           <section>
             

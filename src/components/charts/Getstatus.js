@@ -16,9 +16,9 @@ const FEED_QUERY = gql`
     }
 `
 
-class Getstatistic extends Component {
+class Getstatus extends Component {
   constructor(props){
-
+    
     super(props);
     this.state = {
     }
@@ -30,7 +30,7 @@ class Getstatistic extends Component {
         {({ loading, error, data }) => {
           if (loading) return <div>Fetching</div>
           if (error) return <div>Error</div>
-        
+         
           let obj1 = {
             amazon: 0,
             bestbuy: 0,
@@ -39,12 +39,12 @@ class Getstatistic extends Component {
           caltotal(data , obj1);
           let obj2= caldep(data);
             
-        
+       
           return (
             //...to be updated
            
              
-             <DonutChart data={obj2}/>
+             <PieChart data={obj1}/>
         
              
           )
@@ -54,7 +54,7 @@ class Getstatistic extends Component {
   }
 }
   
-export default Getstatistic
+export default Getstatus
 
 function caltotal(data , obj){
   for(var x = 0 ; x < data.getstat.length ; x++){
