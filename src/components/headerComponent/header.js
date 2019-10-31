@@ -42,7 +42,7 @@ class Header extends Component {
         <nav>
             <ul>
                 <li>
-                  <Link className="basicBtn" to={ this.state.dest } onClick={this.handleClick}> { this.state.out } </Link> 
+                  <Link className="basicBtn" to={this.state.dest} onClick={this.handleClick}>{this.state.out}</Link> 
                 </li>
             </ul>
         </nav>
