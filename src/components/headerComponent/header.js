@@ -4,6 +4,34 @@ import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom"
 
 
 class Header extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      login: true,
+      dest: '/Signin',
+      out: 'Sign In'
+    }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    if(this.state.login){
+      this.setState(state => ({
+        login: !state.login,
+        dest: '/',
+        out: 'Sign Out'
+      }));
+    }
+    else{
+      this.setState(state => ({
+        login: !state.login,
+        dest: '/Signin',
+        out: 'Sign In'
+      }));
+    }
+    
+  }
+
   render() {
     console.log('location',window.location.pathname)
     return(
@@ -14,14 +42,7 @@ class Header extends Component {
         <nav>
             <ul>
                 <li>
-                  
-                 
-                  <Link className="basicBtn" to="/Signin">
-                    Sign In
-                  </Link>
-                 
-                  
-                 
+                  <Link className="basicBtn" to={ this.state.dest } onClick={this.handleClick}> { this.state.out } </Link> 
                 </li>
             </ul>
         </nav>
