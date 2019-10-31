@@ -7,6 +7,7 @@ import Footer from './components/footerComponent/footer'
 import Landingpage from './components/pages/landingPage'
 import LinkList from './components/Apollo-test/LinkList'
 import CreateUser from './components/Apollo-test/CreateUser'
+import Getstatistic from './components/charts/Getstatistic'
 
 import SigninContainer from './components/pages/signinPage'
 
@@ -26,6 +27,7 @@ class App extends Component {
       <Router>
          <div className="App">
           <Header/>
+          <Getstatistic/>
           <Switch>
             <Route exact path="/" component={Landingpage}></Route>
             <Route path="/signin/" component={SigninContainer} />
