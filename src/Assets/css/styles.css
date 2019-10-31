@@ -100,7 +100,7 @@ footer {
   transition: 0.2s ease; }
   .basicBtn_reverse:hover {
     color: #fff;
-    background: #2B64FF; }
+    background: rgba(0, 0, 0, 0); }
 
 /*Vars*/
 /*RWD*/
@@ -212,4 +212,30 @@ h4 {
         justify-content: space-between;
         margin-bottom: 50px; }
         .landing-body section:nth-child(2) .landing-body-second-part1 .status-list span, .landing-body section:nth-child(2) .landing-body-second-part2 .status-list span {
+          display: flex; }
+  .landing-body section:nth-child(3) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #BCBCBC;
+    width: 100%;
+    height: 600px; }
+    .landing-body section:nth-child(3) .landing-body-third-part1, .landing-body section:nth-child(3) .landing-body-third-part2 {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      .landing-body section:nth-child(3) .landing-body-third-part1 h2, .landing-body section:nth-child(3) .landing-body-third-part2 h2 {
+        margin-bottom: 70px; }
+      .landing-body section:nth-child(3) .landing-body-third-part1 h4, .landing-body section:nth-child(3) .landing-body-third-part2 h4 {
+        margin: auto;
+        margin-right: 60px; }
+      .landing-body section:nth-child(3) .landing-body-third-part1 .product-list, .landing-body section:nth-child(3) .landing-body-third-part2 .product-list {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        justify-content: space-between;
+        margin-bottom: 50px; }
+        .landing-body section:nth-child(3) .landing-body-third-part1 .product-list span, .landing-body section:nth-child(3) .landing-body-third-part2 .product-list span {
           display: flex; }

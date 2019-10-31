@@ -59,7 +59,7 @@ class PieChart extends React.Component{
                         <h2>Searching Status</h2>
                         <div className="landing-body-second-part1-status">
                             <div className="status-list">
-                                <h4>Amazon </h4>
+                                <h4>{Object.keys(this.state.data)[0]}</h4>
                                 <span>
                                     <svg width="85" height="40">
                                         <rect width="85" height="40" fill='#F57A1F' />
@@ -67,7 +67,7 @@ class PieChart extends React.Component{
                                 </span>
                             </div>
                             <div className="status-list">
-                                <h4>BestBuy </h4>
+                                <h4>{Object.keys(this.state.data)[1]}</h4>
                                 <span>
                                     <svg width="85" height="40">
                                         <rect width="85" height="40" fill='#FCF43C' />
@@ -75,7 +75,7 @@ class PieChart extends React.Component{
                                 </span>
                             </div>
                             <div className="status-list">
-                                <h4>Target </h4>
+                                <h4>{Object.keys(this.state.data)[2]}</h4>
                                 <span>
                                     <svg width="85" height="40">
                                         <rect width="85" height="40" fill='#D30000' />
