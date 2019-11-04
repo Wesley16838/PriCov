@@ -10,6 +10,7 @@ import CreateUser from './components/Apollo-test/CreateUser'
 import Getstatistic from './components/charts/Getstatistic'
 
 import SigninContainer from './components/pages/signinPage'
+import Button from "./components/redux-test/button";
 
 //includes
 import './Assets/css/styles.min.css'//css file
@@ -31,6 +32,7 @@ class App extends Component {
             <Route exact path="/" component={Landingpage}></Route>
             <Route path="/signin/" component={SigninContainer} />
           </Switch>
+          <Button type="login"/>
           <Footer/>
       </div>
       </Router>    

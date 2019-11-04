@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom"
 
-
+//test button
+import Button from "../redux-test/button"
 
 class Header extends Component {
   constructor(props){
@@ -41,8 +42,11 @@ class Header extends Component {
         </div>
         <nav>
             <ul>
-                <li>
+                {/* <li>
                   <Link className="basicBtn" to={this.state.dest} onClick={this.handleClick}>{this.state.out}</Link> 
+                </li> */}
+                <li>
+                  <Button type="login"/>
                 </li>
             </ul>
         </nav>
