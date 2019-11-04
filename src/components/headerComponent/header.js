@@ -46,7 +46,7 @@ class Header extends Component {
                   <Link className="basicBtn" to={this.state.dest} onClick={this.handleClick}>{this.state.out}</Link> 
                 </li> */}
                 <li>
-                  <Button type="login"/>
+                  <Link className="basicBtn" to={this.state.dest} onClick={this.handleClick}>{this.state.out}</Link> 
                 </li>
             </ul>
         </nav>
