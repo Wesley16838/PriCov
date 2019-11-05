@@ -8,7 +8,6 @@ import Landingpage from './components/pages/landingPage'
 import Homepage from './components/pages/homePage'
 
 import SigninContainer from './components/pages/signinPage'
-import Button from "./components/redux-test/button";
 
 //includes
 import './Assets/css/styles.min.css'//css file
@@ -67,7 +66,6 @@ class App extends Component {
             <Route path="/signin" component={SigninContainer} />
             <PrivateRoute path="/home" component={Homepage} />
           </Switch>
-          <Button type="login"/>
           <Footer/>
       </div>
       </Router>    

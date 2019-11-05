@@ -76,13 +76,6 @@ class CreateUser extends Component {
                         type="text"
                         placeholder="email"
                     />
-                    {/* <input
-                        className="mb2"
-                        value={url}
-                        onChange={e => this.setState({ url: e.target.value })}
-                        type="text"
-                        placeholder="The URL for the link"
-                    /> */}
                 </div>
                 <Mutation mutation={POST_MUTATION} variables={{ email }} onCompleted={(data) => this.reloadchild()}>
                     {PostMutation => <button onClick={PostMutation}>Submit</button>}
