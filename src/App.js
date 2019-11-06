@@ -9,6 +9,8 @@ import Homepage from './components/pages/homePage'
 
 import SigninContainer from './components/pages/signinPage'
 
+import Singleuser from './components/Apollo-test/singleuser'
+
 //includes
 import './Assets/css/styles.min.css'//css file
 import './Assets/js/scripts.min.js'//js file
@@ -66,6 +68,7 @@ class App extends Component {
             <Route path="/signin" component={SigninContainer} />
             <PrivateRoute path="/home" component={Homepage} />
           </Switch>
+          {/* <Singleuser id="5dc0f78945ecf71a344cbff5"/> */}
           <Footer/>
       </div>
       </Router>    
