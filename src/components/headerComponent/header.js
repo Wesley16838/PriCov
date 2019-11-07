@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom"
 
-
+//test button
+import Button from "../redux-test/button"
 
 class Header extends Component {
   constructor(props){
     super(props);
     this.state = {
-      login: 0,
+      login: true,
       dest: '/Signin',
       out: 'Sign In'
     }
@@ -15,22 +16,17 @@ class Header extends Component {
   }
 
   handleClick() {
-    if(this.state.login == 0){//default landing page
-      this.setState(state => ({//
-        login: 1,
+    if(this.state.login){
+      this.setState(state => ({
+        login: !state.login,
         dest: '/',
-        out: 'Go Back'
+        out: 'Sign Out'
       }));
-    }else if(this.state.login == 1){//登入頁面
+    }
+    else{
       this.setState(state => ({
-        login: 0,
+        login: !state.login,
         dest: '/Signin',
-        out: 'Sign In'
-      }));
-    }else if(this.state.login == -1){//Homepage
-      this.setState(state => ({
-        login: 0,
-        dest: '/Singin',
         out: 'Sign In'
       }));
     }
@@ -46,8 +42,11 @@ class Header extends Component {
         </div>
         <nav>
             <ul>
-                <li>
+                {/* <li>
                   <Link className="basicBtn" to={this.state.dest} onClick={this.handleClick}>{this.state.out}</Link> 
+                </li> */}
+                <li>
+                  <Button type="login"/>
                 </li>
             </ul>
         </nav>

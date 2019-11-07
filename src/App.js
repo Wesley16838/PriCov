@@ -9,6 +9,8 @@ import Homepage from './components/pages/homePage'
 import Searchpage from './components/pages/searchPage'
 import SigninContainer from './components/pages/signinPage'
 
+import Singleuser from './components/Apollo-test/singleuser'
+
 //includes
 import './Assets/css/styles.min.css'//css file
 import './Assets/js/scripts.min.js'//js file
@@ -70,6 +72,7 @@ class App extends Component {
             <PrivateRoute path="/home" component={Homepage} />
             <PrivateRoute path="/search" component={Searchpage} />
           </Switch>
+          <Singleuser id="someemail@email.com"/>
           <Footer/>
       </div>
       </Router>    
