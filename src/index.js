@@ -16,7 +16,11 @@ import store from "./components/redux-test/store"
 
 //ReactDOM.render(<App />, document.getElementById('root'));
 const httpLink = createHttpLink({
-    uri: 'http://localhost:4000'
+    uri: 'http://localhost:4000',
+    onError: ({ networkError, graphQLErrors }) => {
+        console.log("graphQLErrors", graphQLErrors);
+        console.log("networkError", networkError);
+      }
 });
 
 const client = new ApolloClient({

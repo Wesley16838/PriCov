@@ -16,6 +16,7 @@ const FEED_QUERY =  gql`
                 url
                 img
                 user
+                keyword
             }
         }
     }
@@ -64,7 +65,7 @@ class Singleuser extends Component {
                     if (loading) return <div>Fetching</div>
                     if (error) return <div>Error</div>
                     console.log('user data')
-                    console.log(data)
+                    console.log(data.finduser)
                     const user = data.finduser
                     let obj = {
                         amazon: 0,
@@ -72,13 +73,20 @@ class Singleuser extends Component {
                         bestbuy: 0,
                         other: 0
                     }
+                    let historyobj = {}
                     for(var x = 0 ; x < user.History.length ; x++){
                         obj[this.contains(user.History[x].url)]++;
+                        if(historyobj[user.History[x].keyword] == undefined){
+                            historyobj[user.History[x].keyword] = new Array(0);
+                        }
+                        historyobj[user.History[x].keyword].push(user.History[x]);
                     }
                     console.log('obj',obj);
+                    console.log('historyobj',historyobj);
+                    user.History = historyobj;
                     return (
                         <div>
-                            {/* <Link key={user._id} user={user} /> */}
+                            <Link key={user._id} user={user} />
                             {/* Implelent user component here. */}
                             {/* Return data is in 'user' varibale. */}
                             {/* Stastistic data is in 'obj' varibale. */}

@@ -21,6 +21,7 @@ class Link extends Component {
                 <li><a href={unit.url} rel="noopener noreferrer" target="_blank">url: {unit.url}</a></li>
                 <li>img: {unit.img}</li>
                 <li>user: {unit.user}</li>
+                <li>keyword: {unit.keyword}</li>
               </ul>
             );
             

@@ -68,7 +68,7 @@ class App extends Component {
             <Route path="/signin" component={SigninContainer} />
             <PrivateRoute path="/home" component={Homepage} />
           </Switch>
-          {/* <Singleuser id="someemail@email.com"/> */}
+          <Singleuser id="someemail@email.com"/>
           <Footer/>
       </div>
       </Router>    
