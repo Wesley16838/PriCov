@@ -1,0 +1,74 @@
+@import "_config.scss";
+.homepage{
+    padding:70px 200px;
+}
+.home-header{
+    background-image: url('./../img/homepage/homebg.png');
+    background-position: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:100vh;
+    margin-top:-100px;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+.home-body{
+
+}
+.panelBtn{
+    font-size:20px;
+    color:#2B64FF;
+    width:400px;
+    height:300px;
+    background-color: #fff;
+    box-shadow: 0px 6px 6px #00000029;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 15px;
+    @include transition(.2s ease);
+    .overlay{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: #2B64FF;
+        border-radius: 15px;
+      }
+    &:hover .overlay{
+        opacity: 1;
+    }
+    .text {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+}
+
+
+.panelList{
+    width:100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    section{
+        width:33.3%;
+    }
+}

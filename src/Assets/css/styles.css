@@ -165,6 +165,98 @@ h3 {
 h4 {
   font-size: 20px; }
 
+.homepage {
+  padding: 70px 200px; }
+
+.home-header {
+  background-image: url("./../img/homepage/homebg.png");
+  background-position: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin-top: -100px;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; }
+
+.panelBtn {
+  font-size: 20px;
+  color: #2B64FF;
+  width: 400px;
+  height: 300px;
+  background-color: #fff;
+  box-shadow: 0px 6px 6px #00000029;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 15px;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  transition: 0.2s ease; }
+  .panelBtn .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #2B64FF;
+    border-radius: 15px; }
+  .panelBtn:hover .overlay {
+    opacity: 1; }
+  .panelBtn .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+.panelList {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .panelList section {
+    width: 33.3%; }
+
+/*Vars*/
+/*RWD*/
+/*Mixins*/
+html {
+  font-size: 16px; }
+
+/*General Setting*/
+body {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  font-size: 16px; }
+
+a {
+  text-decoration-line: none;
+  cursor: pointer; }
+
+h1 {
+  font-size: 60px; }
+
+h2 {
+  font-size: 45px; }
+
+h3 {
+  font-size: 36px; }
+
+h4 {
+  font-size: 20px; }
+
 .landing-header {
   background-image: url("./../img/landingpage/landing@2x.png");
   background-position: center;

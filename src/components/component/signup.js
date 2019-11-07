@@ -1,8 +1,26 @@
 import React, { Component } from "react";
 import { auth } from "../firebase";
+import { Mutation } from 'react-apollo'
+import gql from 'graphql-tag'
 import {
     withRouter
   } from 'react-router-dom'
+//user schema / all string / history = array
+const POST_MUTATION = gql`
+  mutation PostMutation($email: String!) {
+    adduser(email: $email) {
+      _id
+      email
+      History{
+          title
+          price
+          sale
+          img
+          url
+      }
+    }
+  }
+`
 const INITIAL_STATE = {
   displayName: "",
   email: "",
@@ -140,9 +158,10 @@ class SignUp extends Component {
               />
             </div>
             <div className="form-group">
-              <button type="submit" className="basicBtn" disabled={isInvalid}>
-                Submit
-              </button>
+              
+              <Mutation mutation={POST_MUTATION} variables={{ email:email }} onCompleted={(data) => alert(data)}>
+                    {PostMutation => <button onClick={PostMutation} type="submit" className="basicBtn" disabled={isInvalid}>Submit</button>}
+                </Mutation>
             </div>
           </form>
         </div>
