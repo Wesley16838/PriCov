@@ -4,8 +4,8 @@ import gql from 'graphql-tag'
 import Link from './Link'
 
 const FEED_QUERY =  gql`
-    query finduser($id: ID!){
-        finduser(_id:$id){
+    query finduser($email: String!){
+        finduser(email:$email){
             _id
             email
             History{
@@ -27,7 +27,7 @@ class Singleuser extends Component {
         console.log(props.id)
         super(props);
         this.state = {
-            id: props.id
+            email: props.id
         }
     }
 
@@ -59,7 +59,7 @@ class Singleuser extends Component {
 
     render() {
         return (
-            <Query query={FEED_QUERY} variables={{ id:this.state.id }}>
+            <Query query={FEED_QUERY} variables={{ email:this.state.email }}>
                 {({ loading, error, data }) => {
                     if (loading) return <div>Fetching</div>
                     if (error) return <div>Error</div>

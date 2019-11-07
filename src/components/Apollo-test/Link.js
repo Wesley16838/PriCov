@@ -6,21 +6,21 @@ class Link extends Component {
     return (
       <div>
         <div>
-          {this.props.user._id}
+          id: {this.props.user._id}
           <br/>
-          {this.props.user.email}
+          email: {this.props.user.email}
           <br/>
           [
           {this.props.user.History.map(unit => {
             return(
               <ul>
-                <li>{unit._id}</li>
-                <li>{unit.title}</li>
-                <li>{unit.price}</li>
-                <li>{unit.sale}</li>
-                <li>{unit.url}</li>
-                <li>{unit.img}</li>
-                <li>{unit.user}</li>
+                <li>history id: {unit._id}</li>
+                <li>title {unit.title}</li>
+                <li>price: ${unit.price}</li>
+                <li>sale: ${unit.sale}</li>
+                <li><a href={unit.url} rel="noopener noreferrer" target="_blank">url: {unit.url}</a></li>
+                <li>img: {unit.img}</li>
+                <li>user: {unit.user}</li>
               </ul>
             );
             
