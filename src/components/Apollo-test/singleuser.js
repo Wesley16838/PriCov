@@ -83,7 +83,15 @@ class Singleuser extends Component {
                     }
                     console.log('obj',obj);
                     console.log('historyobj',historyobj);
-                    user.History = historyobj;
+                    let historyobjarr = new Array(0);
+                    for(var x in historyobj){
+                        let tmp = {
+                            productName: x,
+                            result: historyobj[x]
+                        }
+                        historyobjarr.push(tmp);
+                    }
+                    console.log(historyobjarr)
                     return (
                         <div>
                             <Link key={user._id} user={user} />
