@@ -74,13 +74,23 @@ class Singleuser extends Component {
                         other: 0
                     }
                     let historyobj = {}
+                    let stasticobj = {}
                     for(var x = 0 ; x < user.History.length ; x++){
-                        //obj[this.contains(user.History[x].url)]++;
+                        let tmp = this.contains(user.History[x].url);
                         if(historyobj[user.History[x].keyword] == undefined){
                             historyobj[user.History[x].keyword] = new Array(0);
                         }
-                        user.History[x]['website'] = this.contains(user.History[x].url);
+                        if(stasticobj[user.History[x].keyword] == undefined){
+                            stasticobj[user.History[x].keyword] = {
+                                amazon: 0,
+                                target: 0,
+                                bestbuy: 0,
+                                other: 0
+                            };
+                        }
+                        user.History[x]['website'] = tmp;
                         historyobj[user.History[x].keyword].push(user.History[x]);
+                        stasticobj[user.History[x].keyword][tmp]++;
                     }
                     console.log('obj',obj);
                     console.log('historyobj',historyobj);
@@ -88,6 +98,7 @@ class Singleuser extends Component {
                     for(var x in historyobj){
                         let tmp = {
                             productName: x,
+                            stastistic: stasticobj[x],
                             result: historyobj[x]
                         }
                         historyobjarr.push(tmp);
