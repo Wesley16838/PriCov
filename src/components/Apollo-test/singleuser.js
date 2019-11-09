@@ -75,10 +75,11 @@ class Singleuser extends Component {
                     }
                     let historyobj = {}
                     for(var x = 0 ; x < user.History.length ; x++){
-                        obj[this.contains(user.History[x].url)]++;
+                        //obj[this.contains(user.History[x].url)]++;
                         if(historyobj[user.History[x].keyword] == undefined){
                             historyobj[user.History[x].keyword] = new Array(0);
                         }
+                        user.History[x]['website'] = this.contains(user.History[x].url);
                         historyobj[user.History[x].keyword].push(user.History[x]);
                     }
                     console.log('obj',obj);
