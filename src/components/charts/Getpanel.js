@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import Link from './Link'
+
+import PanelList from './../component/panelList'
 
 const FEED_QUERY =  gql`
     query finduser($email: String!){
@@ -22,7 +23,7 @@ const FEED_QUERY =  gql`
     }
 `
 
-class Singleuser extends Component {
+class Getpanel extends Component {
     constructor(props) {
         console.log('in Singleuser!')
         console.log(props.id)
@@ -74,28 +75,42 @@ class Singleuser extends Component {
                         other: 0
                     }
                     let historyobj = {}
+                    let stasticobj = {}
                     for(var x = 0 ; x < user.History.length ; x++){
-                        obj[this.contains(user.History[x].url)]++;
+                        let tmp = this.contains(user.History[x].url);
                         if(historyobj[user.History[x].keyword] == undefined){
                             historyobj[user.History[x].keyword] = new Array(0);
                         }
+                        if(stasticobj[user.History[x].keyword] == undefined){
+                            stasticobj[user.History[x].keyword] = {
+                                amazon: 0,
+                                target: 0,
+                                bestbuy: 0,
+                                other: 0
+                            };
+                        }
+                        user.History[x]['website'] = tmp;
                         historyobj[user.History[x].keyword].push(user.History[x]);
+                        stasticobj[user.History[x].keyword][tmp]++;
                     }
                     console.log('obj',obj);
                     console.log('historyobj',historyobj);
-                    //user.History = historyobj;
+                    let historyobjarr = new Array(0);
+                    for(var x in historyobj){
+                        let tmp = {
+                            productName: x,
+                            stastistic: stasticobj[x],
+                            result: historyobj[x].slice(0,9)
+                        }
+                        historyobjarr.push(tmp);
+                    }
+                    console.log(historyobjarr)
                     return (
-                        <div>
-                            <Link key={user._id} user={user} />
-                            {/* Implelent user component here. */}
-                            {/* Return data is in 'user' varibale. */}
-                            {/* Stastistic data is in 'obj' varibale. */}
-                        </div>
+                        <PanelList data={historyobjarr} />
                     )
                 }}
             </Query>
         )
     }
 }
-
-export default Singleuser
+export default Getpanel

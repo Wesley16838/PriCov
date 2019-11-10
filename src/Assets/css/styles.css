@@ -43,6 +43,8 @@ header {
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     transform: translateY(-50%); }
+    header .logo h1 {
+      margin: auto; }
   header nav,
   header nav ul,
   header nav ul li {
@@ -165,9 +167,6 @@ h3 {
 h4 {
   font-size: 20px; }
 
-.homepage {
-  padding: 70px 200px; }
-
 .home-header {
   background-image: url("./../img/homepage/homebg.png");
   background-position: 250px;
@@ -179,7 +178,10 @@ h4 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw; }
+  width: 100%; }
+
+.home-body {
+  padding: 70px 200px; }
 
 .panelBtn {
   font-size: 20px;
@@ -223,12 +225,78 @@ h4 {
     text-align: center; }
 
 .panelList {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin-top: 110px; }
   .panelList section {
-    width: 33.3%; }
+    width: 600px;
+    height: 600px;
+    padding: 30px;
+    box-shadow: 0px 6px 6px #00000029;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative; }
+    .panelList section h3 {
+      margin-top: 0px;
+      margin-bottom: 1rem; }
+    .panelList section h4 {
+      margin-top: 0px;
+      margin-bottom: 0px; }
+    .panelList section ul {
+      padding-left: 0px; }
+      .panelList section ul li {
+        list-style-type: none;
+        color: #898989; }
+    .panelList section .panelList-console {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      background-color: #BCE0FD; }
+    .panelList section .panelList-panel {
+      width: 60%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 60px;
+      position: relative; }
+      .panelList section .panelList-panel a {
+        color: #000; }
+        .panelList section .panelList-panel a:hover img {
+          opacity: .5;
+          right: 10px; }
+      .panelList section .panelList-panel img {
+        -webkit-transition: 0.2s ease;
+        -moz-transition: 0.2s ease;
+        transition: 0.2s ease;
+        opacity: 1;
+        width: 20px;
+        position: absolute;
+        right: 30px; }
+    .panelList section .panelList-logo {
+      width: 40%; }
+      .panelList section .panelList-logo ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 30px; }
+      .panelList section .panelList-logo ul li {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .panelList section .panelList-logo ul li img {
+          width: 60px; }
 
 /*Vars*/
 /*RWD*/
@@ -367,6 +435,24 @@ h4 {
         margin-bottom: 50px; }
         .landing-body section:nth-child(3) .landing-body-third-part1 .product-list span, .landing-body section:nth-child(3) .landing-body-third-part2 .product-list span {
           display: flex; }
+
+.search-bg {
+  background-image: url("./../img/searchpage/searchbg.png");
+  background-position: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin-top: -100px;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; }
+
+.search_form {
+  display: flex;
+  flex-direction: column;
+  padding: 140px 200px; }
 
 .signin-container {
   background-image: url("./../img/signinpage/signin.png");

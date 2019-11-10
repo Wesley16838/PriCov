@@ -72,7 +72,7 @@ class App extends Component {
             <PrivateRoute path="/home" component={Homepage} />
             <PrivateRoute path="/search" component={Searchpage} />
           </Switch>
-          <Singleuser id="someemail@email.com"/>
+          
           <Footer/>
       </div>
       </Router>    

@@ -16,6 +16,9 @@ header{
         top:50%;
         left:50px;
         @include translateY(-50%)
+        h1{
+            margin: auto;
+        }
     }
     nav,
     nav ul,
