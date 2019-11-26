@@ -1,0 +1,23 @@
+[{
+    "productName":"cell phone",
+    "result":[{"title":"iphone11 64GB","price":"699.00","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-XR-Fully-Unlocked/dp/B07P6Y8L3F/ref=sr_1_1?keywords=iphone+11+64gb&qid=1573083749&sr=8-1","img":"NA","website":"Amazon"},
+        {"title":"iphone11 128GB","price":"749.00","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-Unlocked-CDMA-Bundle/dp/B07TSYBWD2/ref=sr_1_2?keywords=iphone+11+64gb&qid=1573083774&sr=8-2","img":"NA","website":"Amazon"},
+        {"title":"iphone11 256GB","price":"849.00","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-Max-Fully-Unlocked/dp/B07KFMSQKX/ref=sr_1_3?keywords=iphone+11+64gb&qid=1573083798&sr=8-3","img":"NA","website":"Amazon"},
+        {"title":"iphone11 Pro","price":"999.00","sale":"NA","url":"https://www.bestbuy.com/site/iphone/iphone-11-shop-by-carrier/pcmcat1568147287090.c?id=pcmcat1568147287090","img":"NA","website":"Best Buy"},
+        {"title":"iphone11 Pro MAX","price":"1099.00","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-XS-Fully-Unlocked/dp/B07K4VCLLK/ref=sr_1_5?keywords=iphone+11+64gb&qid=1573083827&sr=8-5","img":"NA","website":"Amazon"},
+        {"title":"iphone XR 64GB","price":"599.00","sale":"NA","url":"https://www.amazon.com/Simple-Mobile-Apple-iPhone-Midnight/dp/B07XSQT4Q3/ref=sr_1_6?keywords=iphone+11+64gb&qid=1573083839&sr=8-6","img":"NA","website":"Amazon"},
+        {"title":"iphone XR 128GB","price":"649.00","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-XR-Fully-Unlocked/dp/B07PK44V3J/ref=sr_1_7?keywords=iphone+11+64gb&qid=1573083870&sr=8-7","img":"NA","website":"Amazon"},
+        {"title":"iPhone X 64GB","price":"899.99","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-XR-Fully-Unlocked/dp/B07PK44V3J/ref=sr_1_7?keywords=iphone+11+64gb&qid=1573083881&sr=8-7","img":"NA","website":"Amazon"},
+        {"title":"iPhone 8","price":"449.00","sale":"NA","url":"https://www.target.com/p/apple-iphone-11/-/A-78052843?preselect=78139034#lnk=sametab","img":"NA","website":"Target"}]
+},{
+    "productName":"laptop",
+    "result":[{"title":"macbook pro","price":"699.00","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-XR-Fully-Unlocked/dp/B07P6Y8L3F/ref=sr_1_1?keywords=iphone+11+64gb&qid=1573083749&sr=8-1","img":"NA","website":"Amazon"},
+        {"title":"Dell pro","price":"749.00","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-Unlocked-CDMA-Bundle/dp/B07TSYBWD2/ref=sr_1_2?keywords=iphone+11+64gb&qid=1573083774&sr=8-2","img":"NA","website":"Amazon"},
+        {"title":"HP version11","price":"849.00","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-Max-Fully-Unlocked/dp/B07KFMSQKX/ref=sr_1_3?keywords=iphone+11+64gb&qid=1573083798&sr=8-3","img":"NA","website":"Amazon"},
+        {"title":"iphone11 Pro","price":"999.00","sale":"NA","url":"https://www.bestbuy.com/site/iphone/iphone-11-shop-by-carrier/pcmcat1568147287090.c?id=pcmcat1568147287090","img":"NA","website":"Best Buy"},
+        {"title":"iphone11 Pro MAX","price":"1099.00","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-XS-Fully-Unlocked/dp/B07K4VCLLK/ref=sr_1_5?keywords=iphone+11+64gb&qid=1573083827&sr=8-5","img":"NA","website":"Amazon"},
+        {"title":"iphone XR 64GB","price":"599.00","sale":"NA","url":"https://www.amazon.com/Simple-Mobile-Apple-iPhone-Midnight/dp/B07XSQT4Q3/ref=sr_1_6?keywords=iphone+11+64gb&qid=1573083839&sr=8-6","img":"NA","website":"Amazon"},
+        {"title":"iphone XR 128GB","price":"649.00","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-XR-Fully-Unlocked/dp/B07PK44V3J/ref=sr_1_7?keywords=iphone+11+64gb&qid=1573083870&sr=8-7","img":"NA","website":"Amazon"},
+        {"title":"iPhone X 64GB","price":"899.99","sale":"NA","url":"https://www.amazon.com/Apple-iPhone-XR-Fully-Unlocked/dp/B07PK44V3J/ref=sr_1_7?keywords=iphone+11+64gb&qid=1573083881&sr=8-7","img":"NA","website":"Amazon"},
+        {"title":"iPhone 8","price":"449.00","sale":"NA","url":"https://www.target.com/p/apple-iphone-11/-/A-78052843?preselect=78139034#lnk=sametab","img":"NA","website":"Target"}]
+}]

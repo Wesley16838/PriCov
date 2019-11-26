@@ -1,0 +1,18 @@
+.search-bg{
+    background-image: url('./../img/searchpage/searchbg.png');
+    background-position: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:100vh;
+    margin-top:-100px;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.search_form{
+    display: flex;
+    flex-direction: column;
+    padding:140px 200px;
+}
