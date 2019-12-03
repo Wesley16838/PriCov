@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route,NavLink } from "react-router-dom"
 import SignOutButton from "../component/signout"
+import UprightBarChart from "../charts/uprightBarChart"
+import PriceTable from "../charts/priceTable"
 import {
     withRouter
   } from 'react-router-dom'
@@ -124,7 +126,7 @@ class Searchpage extends Component {
   }
   handleSubmit(event) {
     console.log('this.state.websites',this.state.websites)
-    alert('Your favorite flavor is: ' + this.state.brand + this.state.department);
+    alert('Your favorite flavor is: ' + this.state.brand + this.state.department+this.state.websites);
     event.preventDefault();
   }
   render() {
@@ -167,7 +169,11 @@ class Searchpage extends Component {
               <input type="submit" value="Submit" />
             </form>
             </div>
-      
+            {/* <div class="priceTable">
+              <UprightBarChart/>
+              <PriceTable/>
+            </div> */}
+            
           </div>
             
       
