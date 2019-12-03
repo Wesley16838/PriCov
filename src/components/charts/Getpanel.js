@@ -60,56 +60,63 @@ class Getpanel extends Component {
     }
 
     render() {
+        let arr = {
+            amazon: 20,
+            target: 10,
+            bestbuy: 30,
+            other: 7
+        }
         return (
-            <Query query={FEED_QUERY} variables={{ email:this.state.email }}>
-                {({ loading, error, data }) => {
-                    if (loading) return <div>Fetching</div>
-                    if (error) return <div>Error</div>
-                    console.log('user data')
-                    console.log(data.finduser)
-                    const user = data.finduser
-                    let obj = {
-                        amazon: 0,
-                        target: 0,
-                        bestbuy: 0,
-                        other: 0
-                    }
-                    let historyobj = {}
-                    let stasticobj = {}
-                    for(var x = 0 ; x < user.History.length ; x++){
-                        let tmp = this.contains(user.History[x].url);
-                        if(historyobj[user.History[x].keyword] == undefined){
-                            historyobj[user.History[x].keyword] = new Array(0);
-                        }
-                        if(stasticobj[user.History[x].keyword] == undefined){
-                            stasticobj[user.History[x].keyword] = {
-                                amazon: 0,
-                                target: 0,
-                                bestbuy: 0,
-                                other: 0
-                            };
-                        }
-                        user.History[x]['website'] = tmp;
-                        historyobj[user.History[x].keyword].push(user.History[x]);
-                        stasticobj[user.History[x].keyword][tmp]++;
-                    }
-                    console.log('obj',obj);
-                    console.log('historyobj',historyobj);
-                    let historyobjarr = new Array(0);
-                    for(var x in historyobj){
-                        let tmp = {
-                            productName: x,
-                            stastistic: stasticobj[x],
-                            result: historyobj[x].slice(0,9)
-                        }
-                        historyobjarr.push(tmp);
-                    }
-                    console.log(historyobjarr)
-                    return (
-                        <PanelList data={historyobjarr} />
-                    )
-                }}
-            </Query>
+            <PanelList data={arr} />
+            // <Query query={FEED_QUERY} variables={{ email:this.state.email }}>
+            //     {({ loading, error, data }) => {
+            //         if (loading) return <div>Fetching</div>
+            //         if (error) return <div>Error</div>
+            //         console.log('user data')
+            //         console.log(data.finduser)
+            //         const user = data.finduser
+            //         let obj = {
+            //             amazon: 0,
+            //             target: 0,
+            //             bestbuy: 0,
+            //             other: 0
+            //         }
+            //         let historyobj = {}
+            //         let stasticobj = {}
+            //         for(var x = 0 ; x < user.History.length ; x++){
+            //             let tmp = this.contains(user.History[x].url);
+            //             if(historyobj[user.History[x].keyword] == undefined){
+            //                 historyobj[user.History[x].keyword] = new Array(0);
+            //             }
+            //             if(stasticobj[user.History[x].keyword] == undefined){
+            //                 stasticobj[user.History[x].keyword] = {
+            //                     amazon: 0,
+            //                     target: 0,
+            //                     bestbuy: 0,
+            //                     other: 0
+            //                 };
+            //             }
+            //             user.History[x]['website'] = tmp;
+            //             historyobj[user.History[x].keyword].push(user.History[x]);
+            //             stasticobj[user.History[x].keyword][tmp]++;
+            //         }
+            //         console.log('obj',obj);
+            //         console.log('historyobj',historyobj);
+            //         let historyobjarr = new Array(0);
+            //         for(var x in historyobj){
+            //             let tmp = {
+            //                 productName: x,
+            //                 stastistic: stasticobj[x],
+            //                 result: historyobj[x].slice(0,9)
+            //             }
+            //             historyobjarr.push(tmp);
+            //         }
+            //         console.log(historyobjarr)
+            //         return (
+            //             <PanelList data={historyobjarr} />
+            //         )
+            //     }}
+            // </Query>
         )
     }
 }

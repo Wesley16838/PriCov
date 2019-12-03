@@ -13,7 +13,7 @@ class PanelList extends Component {
 constructor(props){
     super(props);
     this.state={
-        data:this.props.data
+        data
     }
 }
 componentWillMount(){
