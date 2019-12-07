@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-const loginReducer = (state = false, action) => {
+const loginReducer = (state=false, action) => {
     // We never mutate the state, we always return a new state
     // For array or object operations, use the spread operator [..., ] {..., }
     switch (action.type) {

@@ -43,10 +43,10 @@ class Button extends Component {
 
 
     render() {
-        console.log('state in render')
-        console.log(this.state);
-        console.log('store.getState().loginReducer');
-        console.log(store.getState().loginReducer.loginReducer);
+        // console.log('state in render')
+        // console.log(this.state);
+        // console.log('store.getState().loginReducer');
+        // console.log(store.getState().loginReducer.loginReducer);
         return (
             // <button onClick={() => {
             //     if(!store.getState().loginReducer.loginReducer) this.state.tmp.login();

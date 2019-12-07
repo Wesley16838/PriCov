@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import Link from './Link'
+
+import PanelList from './../component/panelList'
 
 const FEED_QUERY =  gql`
     query finduser($email: String!){
@@ -22,10 +23,9 @@ const FEED_QUERY =  gql`
     }
 `
 
-class Singleuser extends Component {
+class Getpanel extends Component {
     constructor(props) {
-        console.log('in Singleuser!')
-        console.log(props.id)
+    
         super(props);
         this.state = {
             email: props.id
@@ -50,7 +50,7 @@ class Singleuser extends Component {
                 }
             }
             if(x < tmp.length - 7){
-                if(tmp.charAt(x) === 'b' && tmp.charAt(x+1) === 'e' && tmp.charAt(x+2) == 's' && tmp.charAt(x+3) === 't' && tmp.charAt(x+4) === 'b' && tmp.charAt(x+5) === 'u' && tmp.charAt(x+6) === 'y'){
+                if(tmp.charAt(x) === 'b' && tmp.charAt(x+1) === 'e' && tmp.charAt(x+2) === 's' && tmp.charAt(x+3) === 't' && tmp.charAt(x+4) === 'b' && tmp.charAt(x+5) === 'u' && tmp.charAt(x+6) === 'y'){
                     return 'bestbuy';
                 }
             }
@@ -64,8 +64,7 @@ class Singleuser extends Component {
                 {({ loading, error, data }) => {
                     if (loading) return <div>Fetching</div>
                     if (error) return <div>Error</div>
-                    console.log('user data')
-                    console.log(data.finduser)
+             
                     const user = data.finduser
                     let obj = {
                         amazon: 0,
@@ -92,31 +91,23 @@ class Singleuser extends Component {
                         historyobj[user.History[x].keyword].push(user.History[x]);
                         stasticobj[user.History[x].keyword][tmp]++;
                     }
-                    console.log('obj',obj);
-                    console.log('historyobj',historyobj);
+                   
                     let historyobjarr = new Array(0);
                     for(var x in historyobj){
                         let tmp = {
                             productName: x,
                             stastistic: stasticobj[x],
-                            result: historyobj[x]
+                            result: historyobj[x].slice(0,9)
                         }
                         historyobjarr.push(tmp);
                     }
-                    console.log(historyobjarr)
-                    //user.History = historyobj;
+               
                     return (
-                        <div>
-                            <Link key={user._id} user={user} />
-                            {/* Implelent user component here. */}
-                            {/* Return data is in 'user' varibale. */}
-                            {/* Stastistic data is in 'obj' varibale. */}
-                        </div>
+                        <PanelList data={historyobjarr} />
                     )
                 }}
             </Query>
         )
     }
 }
-
-export default Singleuser
+export default Getpanel

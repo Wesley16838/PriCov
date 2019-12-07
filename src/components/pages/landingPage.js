@@ -14,7 +14,7 @@ class Landingpage extends Component {
             <h1>PriCov visualizes price comparison</h1>
             <h2>Users save money &amp; time</h2>
             <div className="landing-header-btn">
-              <NavLink className="basicBtn_reverse" to="/Signup">
+              <NavLink className="basicBtn_reverse" to="/signin">
                 <h3>Get Started</h3>
               </NavLink>
             </div>

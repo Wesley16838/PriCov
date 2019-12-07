@@ -1,40 +1,24 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom"
-
+import { BrowserRouter as  Route,Link } from "react-router-dom"
+import { auth } from "../firebase";
+import firebase from "firebase/app";
 //test button
 import Button from "../redux-test/button"
 
 class Header extends Component {
   constructor(props){
     super(props);
+    
     this.state = {
-      login: true,
-      dest: '/Signin',
-      out: 'Sign In'
-    }
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    if(this.state.login){
-      this.setState(state => ({
-        login: !state.login,
-        dest: '/',
-        out: 'Sign Out'
-      }));
-    }
-    else{
-      this.setState(state => ({
-        login: !state.login,
-        dest: '/Signin',
-        out: 'Sign In'
-      }));
+     
     }
     
   }
 
+
   render() {
-    console.log('location',window.location.pathname)
+    
+ 
     return(
       <header>
         <div className="logo">
@@ -42,12 +26,18 @@ class Header extends Component {
         </div>
         <nav>
             <ul>
-                {/* <li>
-                  <Link className="basicBtn" to={this.state.dest} onClick={this.handleClick}>{this.state.out}</Link> 
-                </li> */}
                 <li>
-                  <Button type="login"/>
+                
+                {
+                    this.props.email
+                    ? <Link className="basicBtn" to='/' onClick={auth.doSignOut}>Sign Out</Link> 
+                    : <Link className="basicBtn" to='/signin' >Sign In</Link> 
+                }
+                  
                 </li>
+                {/* <li>
+                  <Button type="login"/>
+                </li> */}
             </ul>
         </nav>
     </header>

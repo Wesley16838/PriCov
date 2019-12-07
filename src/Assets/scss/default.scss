@@ -15,13 +15,17 @@ header{
         position: absolute;
         top:50%;
         left:50px;
-        @include translateY(-50%)
+        @include translateY(-50%);
+        h1{
+            margin: auto;
+        }
     }
     nav,
     nav ul,
     nav ul li{
         margin:0;
         padding:0;
+       
     }
     nav{
         position: absolute;
@@ -29,16 +33,21 @@ header{
         right:50px;
         @include translateY(-50%);
         ul li{
-            list-style-type: none;
-            display: inline;
+            list-style-type: none;   
             margin-right: 10px;//not sure
-
+            display: flex;
+            flex-direction: row;
+            color:#000;
+            p{
+                margin-right: 10px;
+            }
             &.last{
                 margin:0;
             }
             a{
                 font-size:16px;//1 rem
                 line-height:normal;
+                color:#fff; 
             }
         }
     }
@@ -125,3 +134,52 @@ footer{
     font-weight: bold;
     font-family: 'Roboto',arial,sans-serif;
   }
+  .error{
+      color:rgb(255, 0, 0);
+  }
+  $offset: 187;
+$duration: 1.4s;
+
+.spinner {
+  animation: rotator $duration linear infinite;
+}
+
+@keyframes rotator {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+.path {
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation:
+    dash $duration ease-in-out infinite, 
+    colors ($duration*4) ease-in-out infinite;
+}
+
+@keyframes colors {
+	0% { stroke: #4285F4; }
+	25% { stroke: #DE3E35; }
+	50% { stroke: #F7C223; }
+	75% { stroke: #1B9A59; }
+  100% { stroke: #4285F4; }
+}
+
+@keyframes dash {
+ 0% { stroke-dashoffset: $offset; }
+ 50% {
+   stroke-dashoffset: $offset/4;
+   transform:rotate(135deg);
+ }
+ 100% {
+   stroke-dashoffset: $offset;
+   transform:rotate(450deg);
+ }
+}
+.loading{
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

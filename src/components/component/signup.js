@@ -1,8 +1,27 @@
 import React, { Component } from "react";
 import { auth } from "../firebase";
+
+import { Mutation } from 'react-apollo'
+import gql from 'graphql-tag'
 import {
     withRouter
   } from 'react-router-dom'
+//user schema / all string / history = array
+const POST_MUTATION = gql`
+  mutation PostMutation($email: String!) {
+    adduser(email: $email) {
+      _id
+      email
+      History{
+          title
+          price
+          sale
+          img
+          url
+      }
+    }
+  }
+`
 const INITIAL_STATE = {
   displayName: "",
   email: "",
@@ -23,6 +42,13 @@ class SignUp extends Component {
         this.setState({ error: null });
       }
     }
+    if (e.target.name === "passwordOne") {
+      if (e.target.value.length < 6) {
+        this.setState({ error: "Passwords at least more than 6 charactors!" });
+      } else {
+        this.setState({ error: null });
+      }
+    }
     let newState = {};
     newState[e.target.name] = e.target.value;
     this.setState(newState);
@@ -32,13 +58,17 @@ class SignUp extends Component {
     const { displayName, email, passwordOne } = this.state;
 
     try {
+      console.log('submit form')
       await auth.doCreateUserWithEmailAndPassword(
         email,
         passwordOne,
         displayName
       );
+      console.log('finish submited ')
       this.setState({ ...INITIAL_STATE });
+   
       this.props.history.push("/home");
+     
     } catch (e) {
       console.log(e.code);
       switch (e.code) {
@@ -139,12 +169,19 @@ class SignUp extends Component {
                 value={this.state.passwordTwo}
               />
             </div>
-            <div className="form-group">
-              <button type="submit" className="basicBtn" disabled={isInvalid}>
-                Submit
-              </button>
-            </div>
+           
+            {/* onCompleted={(data) => alert(data)} */}
+              <Mutation mutation={POST_MUTATION} variables={{ email:email }}>
+                    {PostMutation => 
+                     <div className="form-group">
+                        <button onClick={PostMutation} type="submit" className="basicBtn" disabled={isInvalid}>Submit</button>
+                     </div>
+                    
+                    }
+              </Mutation>
+         
           </form>
+          
         </div>
       </div>
     );

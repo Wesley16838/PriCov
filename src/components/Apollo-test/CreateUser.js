@@ -10,13 +10,11 @@ const POST_MUTATION = gql`
       _id
       email
       History{
-          _id
           title
           price
           sale
           img
           url
-          user
       }
     }
   }

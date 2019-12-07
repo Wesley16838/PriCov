@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { auth } from "../firebase";
 
-import SignIn from "./signin"
-import SignUp from "./signup"
+import SignIn from "../component/signin"
+import SignUp from "../component/signup"
 class signinpage extends Component {
   render() {
     return(

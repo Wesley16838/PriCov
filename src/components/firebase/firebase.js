@@ -17,8 +17,10 @@ firebase.initializeApp(config);
 const auth = firebase.auth();
 
 function isAuthenticated() {
-  console.log('auth.currentUser,',auth.currentUser);
-  console.log('!!auth.currentUser,',!!auth.currentUser);
+  console.log('auth.currentUser,',auth.currentUserx)
+  console.log('!!auth.currentUser,',!!auth.currentUser)
   return !!auth.currentUser;
 }
+
+
 export { auth, firebase, isAuthenticated };

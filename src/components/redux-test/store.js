@@ -3,7 +3,7 @@ import reducer from "./reducer";
 import logger from "redux-logger";
 import StateLoader from "./stateloader"
 
-const store = createStore(reducer, StateLoader.loadState(), applyMiddleware(logger));
+const store = createStore(reducer, applyMiddleware(logger));
 
 store.subscribe(() => {
     console.log('Subscribe!')
