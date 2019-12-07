@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import PanelList from './../component/panelList'
+import Table from './../charts/table'
 
 const FEED_QUERY =  gql`
     query finduser($email: String!){
@@ -23,7 +23,7 @@ const FEED_QUERY =  gql`
     }
 `
 
-class Getpanel extends Component {
+class Getdashboard extends Component {
     constructor(props) {
     
         super(props);
@@ -93,6 +93,8 @@ class Getpanel extends Component {
                     }
                    
                     let historyobjarr = new Array(0);
+                  
+                    
                     for(var x in historyobj){
                         let tmp = {
                             productName: x,
@@ -101,13 +103,30 @@ class Getpanel extends Component {
                         }
                         historyobjarr.push(tmp);
                     }
-               
+                  
+                    historyobjarr[0]['result_new'] = []
+                    //product image,product name,price, website, onsale, url 
+                    for(var i=0; i<historyobjarr[0].result.length;i++){
+                        var obj_new={
+                            // "Diff":(parseInt(historyobjarr[0].result[i]['price'])-parseInt(historyobjarr[0].result[i]['sale'])).toString(),
+                            "Product Image":historyobjarr[0].result[i]['img'],
+                            "Product Name":historyobjarr[0].result[i]['title'],
+                            "Price":historyobjarr[0].result[i]['price'],
+                            "Website":historyobjarr[0].result[i]['website'],
+                            "Special Offer":historyobjarr[0].result[i]['sale'],
+                            "Url":historyobjarr[0].result[i]['url']
+                            
+                        }
+                        
+                        historyobjarr[0]['result_new'].push(obj_new)
+                    }
+                    console.log('historyobjarr,',historyobjarr)
                     return (
-                        <PanelList data={historyobjarr} />
+                        <Table data={historyobjarr} />
                     )
                 }}
             </Query>
         )
     }
 }
-export default Getpanel
+export default Getdashboard

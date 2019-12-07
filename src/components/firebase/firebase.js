@@ -11,13 +11,15 @@ const config = {
     appId: "1:793605748970:web:235936d81a7f33e6c17f93",
     measurementId: "G-DSNLC5BJJL"
 };
-console.log('1')
+
 firebase.initializeApp(config);
-console.log('2')
+
 const auth = firebase.auth();
 
 function isAuthenticated() {
-  return auth.currentUser;
+  console.log('auth.currentUser,',auth.currentUserx)
+  console.log('!!auth.currentUser,',!!auth.currentUser)
+  return !!auth.currentUser;
 }
 
 

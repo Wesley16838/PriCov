@@ -8,6 +8,15 @@ import {
     withRouter
   } from 'react-router-dom'
 class Homepage extends Component {
+  constructor(props) {
+    console.log('in Homepage!')
+    
+    super(props);
+    console.log('email,',this.props.email)
+    this.state = {
+        email: this.props.email
+    }
+  }
     componentWillMount(){
         console.log("in homepage componentWillMount!!!")
     }
@@ -19,11 +28,12 @@ class Homepage extends Component {
     return(
         <div>
             <div className="home-header">
-                <SignOutButton/>
+               
             </div>
             <div className="home-body">
                 <h1>Dashboard</h1>
                 <CreatePanel/>
+                {/* <Getpanel id={this.state.email}/> */}
                 <Getpanel id="someemail@email.com"/>
             </div>
         </div>

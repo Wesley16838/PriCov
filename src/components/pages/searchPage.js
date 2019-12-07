@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route,NavLink } from "react-router-dom"
-import SignOutButton from "../component/signout"
+
 import {
     withRouter
   } from 'react-router-dom'
+
+import arrow from './../../Assets/img/searchpage/Forward_arrow.png'
 class Searchpage extends Component {
   constructor(props) {
     super(props);
@@ -50,6 +51,7 @@ class Searchpage extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeNext = this.handleChangeNext.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.goback = this.goback.bind(this);
   }
   componentWillMount(){
     console.log("in homepage componentWillMount!!!")
@@ -62,13 +64,14 @@ class Searchpage extends Component {
     return websites.map((website,i)=>{
       return(
         <label key={i}>
-          {website}
+          
           <input 
           type="checkbox"
           name={website.toLowerCase()}
           onChange={this.onWebsiteChange.bind(this)}
           value={this.state.websites[website]}
           />
+          {website}
         </label>
       )
     })
@@ -87,26 +90,26 @@ class Searchpage extends Component {
     const value = target.value;
     // const name = target.name;
 
-    if(value == 'mobile phone'){
+    if(value === 'mobile phone'){
       this.setState({
       department:event.target.value,
       brand:'iPhone',
       nextchoices: ['iPhone', 'Samsung']
       });
-    }else if(value == 'laptop'){
+    }else if(value === 'laptop'){
       this.setState({
         department:event.target.value,
         brand:'Apple',
         nextchoices: ['Apple','Dell','Lenovo','HP']
          
         });
-    }else if(value == 'tv'){
+    }else if(value === 'tv'){
       this.setState({
         department:event.target.value,
         brand:'Samsung',
         nextchoices: ['Samsung', 'LG', 'Sony', 'VIZIO','Insignia','Toshiba']
         });
-    }else if(value == 'game console'){
+    }else if(value === 'game console'){
       this.setState({
       department:event.target.value,
       brand:'PS4',
@@ -124,25 +127,35 @@ class Searchpage extends Component {
   }
   handleSubmit(event) {
     console.log('this.state.websites',this.state.websites)
-    alert('Your favorite flavor is: ' + this.state.brand + this.state.department);
+    // alert('Your favorite flavor is: ' + this.state.brand + this.state.department);
     event.preventDefault();
+    this.props.history.push('/dashboard');
   }
+  goback(e) {
+    this.props.history.goBack();
+  }
+  // goNext(e) {
+  //   this.props.history.push('/dashboard');
+  // }
   render() {
   
     const choice = this.state.choices;
     const nextchoice = this.state.nextchoices
-
+    console.log('arrow,',arrow)
     return(
         
-          <div>
+          <div className="search-bg-l">
             <div className="search-bg">
                
             </div>
             <div className="search-body">
+            <button onClick={this.goback}><img src={arrow}/></button>
             <form onSubmit={this.handleSubmit} className="search_form">
-              <label>
-                Department:
-                <select name="department" onChange={this.handleChange}>
+            
+              <h1>Create New Panel</h1>
+              <label className='choices'>
+                <h3>Department</h3>
+                <select placeholder="Department" name="department" onChange={this.handleChange}>
                   {choice.map((item,i)=>{
                     
                     return(
@@ -151,9 +164,9 @@ class Searchpage extends Component {
                   })}
                 </select>
               </label>
-              <label>
-                Brand:
-                <select name="brand" onChange={this.handleChangeNext}>
+              <label className='choices'>
+                <h3>Brand</h3>
+                <select placeholder="Brand" name="brand" onChange={this.handleChangeNext}>
                 {nextchoice.map((item,i)=>{
                     return(
                       <option key={i} value={item}>{item}</option>
@@ -164,7 +177,7 @@ class Searchpage extends Component {
               
                 <h3>Choose Website:</h3>
                 {this.renderCheckBox()}
-              <input type="submit" value="Submit" />
+              <input className="basicBtn" type="submit" value="Submit" />
             </form>
             </div>
       

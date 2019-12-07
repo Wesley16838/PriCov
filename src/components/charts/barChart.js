@@ -1,4 +1,4 @@
-import React, {createRef,Component} from 'react';
+import React, {createRef} from 'react';
 import * as d3 from 'd3';
 
 class BarChart extends React.Component{
@@ -22,7 +22,7 @@ class BarChart extends React.Component{
         width = 460 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
         var data = this.state.data
-        console.log('bar data,',data)
+        console.log('DATA,',data);
     // append the svg object to the body of the page
     var svg = d3.select(this.ref.current)
     //   .append("svg")
@@ -83,10 +83,10 @@ class BarChart extends React.Component{
    
     }
     render() {
-        console.log('in bar draw render')
+      
        return <div className="barchart">
          <svg width="600" height="350" viewBox="0 0 600 350" preserveAspectRatio="xMidYMid meet" ref={this.ref} />
-   </div>
+          </div>
     }
 }
 

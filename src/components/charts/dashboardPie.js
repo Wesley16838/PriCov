@@ -1,7 +1,7 @@
 import React, {createRef} from 'react';
 import * as d3 from 'd3';
 
-class PieChart extends React.Component{
+class DashboardPie extends React.Component{
     constructor(props){
     console.log('in constructure')
         super();
@@ -17,7 +17,7 @@ class PieChart extends React.Component{
 
     draw(){
         
-        
+       
         const svg = d3.select(this.ref.current);
         const data = this.state.data;
         
@@ -54,40 +54,43 @@ class PieChart extends React.Component{
     }
     render() {
         return  <section>
-                    <div className="landing-body-second-part1">
-                        <h2>Searching Status</h2>
-                        <div className="landing-body-second-part1-status">
+                    <div className="Dashboard-body-second-part1">
+                        <h2>Website Proportion</h2>
+                        <div className="Dashboard-body-second-part1-status">
                             <div className="status-list">
+                                
+                                <span>
+                                    <svg width="70" height="40">
+                                        <rect width="70" height="40" fill='#F57A1F' />
+                                    </svg>
+                                </span>
                                 <h4>{Object.keys(this.state.data)[0]}</h4>
-                                <span>
-                                    <svg width="85" height="40">
-                                        <rect width="85" height="40" fill='#F57A1F' />
-                                    </svg>
-                                </span>
                             </div>
                             <div className="status-list">
+                                
+                                <span>
+                                    <svg width="70" height="40">
+                                        <rect width="70" height="40" fill='#FCF43C' />
+                                    </svg>
+                                </span>
                                 <h4>{Object.keys(this.state.data)[1]}</h4>
-                                <span>
-                                    <svg width="85" height="40">
-                                        <rect width="85" height="40" fill='#FCF43C' />
-                                    </svg>
-                                </span>
                             </div>
                             <div className="status-list">
-                                <h4>{Object.keys(this.state.data)[2]}</h4>
+                               
                                 <span>
-                                    <svg width="85" height="40">
-                                        <rect width="85" height="40" fill='#D30000' />
+                                    <svg width="70" height="40">
+                                        <rect width="70" height="40" fill='#D30000' />
                                     </svg>
                                 </span>
+                                <h4>{Object.keys(this.state.data)[2]}</h4>
                             </div>  
                         </div>
                     </div>
-                    <div className="landing-body-second-part2">
+                    <div className="Dashboard-body-second-part2">
                         <svg width="350" height="350" viewBox="0 0 350 350" preserveAspectRatio="xMidYMid meet" ref={this.ref} />
                     </div>
                 </section>
     }
 }
 
-export default PieChart;
+export default DashboardPie;

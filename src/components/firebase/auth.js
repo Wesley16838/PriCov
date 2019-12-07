@@ -1,9 +1,12 @@
 import { auth, firebase } from "./firebase";
 
 async function doCreateUserWithEmailAndPassword(email, password, displayName) {
+  console.log('bf in create account!!!')
   await auth.createUserWithEmailAndPassword(email, password);
+  console.log('af in create account!!!')
   auth.currentUser.updateProfile({ displayName: displayName });
   console.log(`DISPLAY NAME ${displayName}`);
+
 }
 
 async function doSignInWithEmailAndPassword(email, password) {
@@ -28,6 +31,7 @@ async function doPasswordUpdate(password) {
 }
 
 async function doSignOut() {
+  localStorage.removeItem('displayName')
   await auth.signOut();
 }
 

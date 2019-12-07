@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route,NavLink, Link } from "react-router-dom"
+import { BrowserRouter as Route, Link } from "react-router-dom"
 import {
     withRouter
   } from 'react-router-dom'
-import data from './../../Assets/data/history.json'
+
 import BarChart from './../charts/barChart'
 import arrow from './../../Assets/img/logo/Forward_arrow.png'
 import amazon from './../../Assets/img/logo/amazon_logo.png'
@@ -23,29 +23,27 @@ componentWillMount(){
     
   }
   render() {
-    console.log('123')
-    console.log("Panel data,", this.state.data)
+
     let body = null;
     let li = null;
     let section = null;
     let logo = null;
     let logo_arr=[]
-    console.log("in panellist render!!!")
+  
     section = this.state.data && this.state.data.map(next => {
 
         for(var i in next.stastistic){
-            console.log('i,',i)
-            if(next.stastistic[i]!=0){
-                console.log('yes')
+        
+            if(next.stastistic[i]!==0){
+               
                 logo_arr.push(i)
             }
         }
 
-        console.log('check1,',logo_arr)
-        console.log('next,',next)
+      
       
         li = next.result.slice(0,3).map(item=>{
-            console.log('item,',item)
+         
             return (
             <li key={item.title}>
              - {item.title} ({item.website})
@@ -68,22 +66,22 @@ componentWillMount(){
                     <div className="panelList-logo">
                     <ul>
                          {logo = logo_arr.map(item=>{
-                             if(item == 'amazon'){
+                             if(item === 'amazon'){
                                 return(                      
                                     <li >
-                                    <img src={amazon}/>
+                                    <img src={amazon} alt='amazon'/>
                                     </li>
                                 )
-                             }else if(item == 'target'){
+                             }else if(item === 'target'){
                                 return(                      
                                     <li >
-                                    <img src={target}/>
+                                    <img src={target} alt='target'/>
                                     </li>
                                 )
-                             }else if(item == 'bestbuy'){
+                             }else if(item === 'bestbuy' ){
                                 return(                      
                                     <li >
-                                    <img src={bestbuy}/>
+                                    <img src={bestbuy} alt='bestbuy'/>
                                     </li>
                                 )
                              }
@@ -93,7 +91,7 @@ componentWillMount(){
                    
                     </div>
                     <div className="panelList-panel">
-                        <Link  to={`/search`}>Go to Console<img src={arrow}/></Link>
+                        <Link to={`/search`}>Go to Console<img src={arrow} alt="arrow"/></Link>
                     </div>
                     
            

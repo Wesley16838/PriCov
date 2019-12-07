@@ -93,8 +93,7 @@ function caldep(data){
     }
   }
   var keysSorted = Object.keys(obj).sort(function(a,b){return obj[a]-obj[b]})
-  //console.log('keysSorted'); 
-  //console.log(keysSorted); 
+
   let objtmp = {}
   for(var x = 0 ; x < 3 ; x++){
     objtmp[keysSorted[keysSorted.length-1-x]] = obj[keysSorted[keysSorted.length-1-x]];

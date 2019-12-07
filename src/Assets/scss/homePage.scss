@@ -110,26 +110,31 @@
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-                padding-right:60px;
+                // padding-right:60px;
                 position: relative;
                 
                 a{
                     color:#000;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    width:180px;
+                   
                     &:hover{
-                    img{
-                        opacity: .5;
-                        right:10px;
+                        img{
+                            opacity: .5;
+                            padding-left:20px;
                         }
+                    }
+                    img{
+                        @include transition(.2s ease);
+                        width:30px;
+                        opacity: 1;
+                        padding-left:10px;
                     }
                 }
                 
-                img{
-                    @include transition(.2s ease);
-                    opacity: 1;
-                    width:20px;
-                    position: absolute;
-                    right:30px;
-                }
+               
             }
             .panelList-logo{
                 width:40%;
@@ -149,9 +154,7 @@
                     }
                 }
             }
-        .barchart{
-        //    overflow-x: scroll;
-        }
+       
 
     }
 }

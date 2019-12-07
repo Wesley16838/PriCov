@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route,NavLink, Link } from "react-router-dom"
+import { BrowserRouter as Route, Link } from "react-router-dom"
 import {
     withRouter
   } from 'react-router-dom'

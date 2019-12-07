@@ -40,17 +40,17 @@ class Singleuser extends Component {
         var tmp = url.toLowerCase();
         for(var x = 0 ; x < tmp.length ; x++){
             if(x < tmp.length - 6){
-                if(tmp.charAt(x) == 'a' && tmp.charAt(x+1) == 'm' && tmp.charAt(x+2) == 'a' && tmp.charAt(x+3) == 'z' && tmp.charAt(x+4) == 'o' && tmp.charAt(x+5) == 'n'){
+                if(tmp.charAt(x) === 'a' && tmp.charAt(x+1) === 'm' && tmp.charAt(x+2) === 'a' && tmp.charAt(x+3) === 'z' && tmp.charAt(x+4) === 'o' && tmp.charAt(x+5) === 'n'){
                     return 'amazon';
                 }
             }
             if(x < tmp.length - 6){
-                if(tmp.charAt(x) == 't' && tmp.charAt(x+1) == 'a' && tmp.charAt(x+2) == 'r' && tmp.charAt(x+3) == 'g' && tmp.charAt(x+4) == 'e' && tmp.charAt(x+5) == 't'){
+                if(tmp.charAt(x) === 't' && tmp.charAt(x+1) === 'a' && tmp.charAt(x+2) === 'r' && tmp.charAt(x+3) === 'g' && tmp.charAt(x+4) === 'e' && tmp.charAt(x+5) === 't'){
                     return 'target';
                 }
             }
             if(x < tmp.length - 7){
-                if(tmp.charAt(x) == 'b' && tmp.charAt(x+1) == 'e' && tmp.charAt(x+2) == 's' && tmp.charAt(x+3) == 't' && tmp.charAt(x+4) == 'b' && tmp.charAt(x+5) == 'u' && tmp.charAt(x+6) == 'y'){
+                if(tmp.charAt(x) === 'b' && tmp.charAt(x+1) === 'e' && tmp.charAt(x+2) == 's' && tmp.charAt(x+3) === 't' && tmp.charAt(x+4) === 'b' && tmp.charAt(x+5) === 'u' && tmp.charAt(x+6) === 'y'){
                     return 'bestbuy';
                 }
             }

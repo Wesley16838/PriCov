@@ -13,23 +13,35 @@ const INITIAL_STATE = {
 class SignUp extends Component {
   constructor(props) {
     super(props);
-    this.state = { ...INITIAL_STATE };
+    this.state = { 
+      ...INITIAL_STATE,
+ 
+     };
   }
   handleChange = e => {
     let newState = {};
     newState[e.target.name] = e.target.value;
     this.setState(newState);
   };
+  // firebase.auth.signInWithEmailAndPassword(email, password).then(function(result) {
+  //   console.log('result,',result.user.displayName)
+  //   // localStorage.setItem('displayName', JSON.stringify(result.user.displayName))
+  //   // result.user.tenantId should be ‘TENANT_PROJECT_ID’.
+  //   this.setState({ ...INITIAL_STATE });
+  //   this.props.history.push("./home");
+  // }).catch(function(error) {
+  //   // Handle error.
+  // });;
   async onSubmit(e) {
     e.preventDefault();
     const { email, password } = this.state;
 
     try {
-      console.log('check account');
+   
       await auth.doSignInWithEmailAndPassword(email, password);
-      console.log('pass account');
+   
       this.setState({ ...INITIAL_STATE });
-      console.log('go to next page');
+    
       this.props.history.push("./home");
     } catch (e) {
       console.log('e,',e);
@@ -54,6 +66,9 @@ class SignUp extends Component {
   async socialSignOn(provider) {
     try {
       await auth.doSocialSignIn(provider);
+
+      // let token = await auth.currentUser
+
       this.setState({ ...INITIAL_STATE });
       this.props.history.push("./home");
     } catch (error) {
