@@ -66,6 +66,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
     margin-top:110px;
     section{
         width: 600px;
@@ -101,6 +102,7 @@
                 bottom:0;
                 left:0;
                 width:100%;
+                height:80px;
                 border-bottom-left-radius: 15px;
                 border-bottom-right-radius: 15px;
                 background-color: #BCE0FD;
@@ -138,17 +140,22 @@
             }
             .panelList-logo{
                 width:40%;
+                height:100%;
                 ul{
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
                     padding-left:30px;
+                    height:100%;
+                    margin: 0px;
                 }
                 ul li{
                     list-style-type: none;
+                    height:100%;
                     display:flex;
                     align-items: center;
                     justify-content: center;
+
                     img{
                         width:60px;
                     }

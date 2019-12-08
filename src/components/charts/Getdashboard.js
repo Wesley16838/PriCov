@@ -5,20 +5,16 @@ import gql from 'graphql-tag'
 import Table from './../charts/table'
 
 const FEED_QUERY =  gql`
-    query finduser($email: String!){
-        finduser(email:$email){
+    query findHistory($email: String, $keyword: String!){
+        findHistory(email:$email, keyword:$keyword){
             _id
-            email
-            History{
-                _id
-                title
-                price
-                sale
-                url
-                img
-                user
-                keyword
-            }
+            title
+            price
+            sale
+            url
+            img
+            user
+            keyword 
         }
     }
 `
@@ -27,11 +23,16 @@ class Getdashboard extends Component {
     constructor(props) {
     
         super(props);
+     
         this.state = {
-            email: props.id
+            email: props.id,
+            key:props.keyword
         }
     }
-
+    // componentDidMount(){
+    //     const {keyword} = this.props.match.params
+    //     this.setState({key:keyword})
+    // }
     reload = () => {
         this.setState({ reload: true });
     }
@@ -61,13 +62,15 @@ class Getdashboard extends Component {
     render() {
 
         return (
-            <Query query={FEED_QUERY} variables={{ email:this.state.email }}>
+            <Query query={FEED_QUERY} variables={{ email:this.state.email, keyword:this.state.key }}>
                 {({ loading, error, data }) => {
                     if (loading) return <div>Fetching</div>
                     if (error) return <div>Error</div>
-                    console.log('getdashboard state',this.state)
-                    console.log('getdashboard data',data)
-                    const user = data.finduser
+             
+                    const history = data.findHistory
+
+                    console.log('findhistory',history)
+
                     let obj = {
                         amazon: 0,
                         target: 0,
@@ -76,24 +79,24 @@ class Getdashboard extends Component {
                     }
                     let historyobj = {}
                     let stasticobj = {}
-                    for(var x = 0 ; x < user.History.length ; x++){
-                        let tmp = this.contains(user.History[x].url);
-                        if(historyobj[user.History[x].keyword] == undefined){
-                            historyobj[user.History[x].keyword] = new Array(0);
+                    for(var x = 0 ; x < history.length ; x++){
+                        let tmp = this.contains(history[x].url);
+                        if(historyobj[history[x].keyword] == undefined){
+                            historyobj[history[x].keyword] = new Array(0);
                         }
-                        if(stasticobj[user.History[x].keyword] == undefined){
-                            stasticobj[user.History[x].keyword] = {
+                        if(stasticobj[history[x].keyword] == undefined){
+                            stasticobj[history[x].keyword] = {
                                 amazon: 0,
                                 target: 0,
                                 bestbuy: 0,
                                 other: 0
                             };
                         }
-                        user.History[x]['website'] = tmp;
-                        historyobj[user.History[x].keyword].push(user.History[x]);
-                        stasticobj[user.History[x].keyword][tmp]++;
+                        history[x]['website'] = tmp;
+                        historyobj[history[x].keyword].push(history[x]);
+                        stasticobj[history[x].keyword][tmp]++;
                     }
-                   
+                    console.log('historyobj',historyobj)
                     let historyobjarr = new Array(0);
                   
                     
@@ -122,6 +125,7 @@ class Getdashboard extends Component {
                         
                         historyobjarr[0]['result_new'].push(obj_new)
                     }
+                    historyobjarr[0]['result_new'] = historyobjarr[0]['result_new'].sort(function(a, b){return a.Price.replace(',','') - b.Price.replace(',','')}).slice(0,9);
                     console.log('historyobjarr,',historyobjarr)
                     return (
                         <Table data={historyobjarr} />

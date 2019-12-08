@@ -17,6 +17,7 @@ class UprightBarChart extends Component {
     draw() {
         //temp static data
         const new_data = this.state.data;
+        console.log('new-data,',new_data);
         var arr = []
         var tmp_obj = {
             group:'',
@@ -37,14 +38,27 @@ class UprightBarChart extends Component {
             }
             arr.push(tmp_obj)
         }
-      
+ 
+        var max = Math.ceil(arr[arr.length-1].origin.replace(',',''))
+        var str_max = max.toString()
+        var len = max.toString().length 
+        for(var j=len-1;j>0;j--){
+          
+          max = max - (parseInt(str_max[j])*Math.pow(10, len-j-1));
     
+        }
+        max = max + Math.pow(10, len-1)
+        
        // List of subgroups = header of the csv files = soil condition here
        var subgroups = ['origin','sale']
        // List of groups = species here = value of the first column called group -> I show them on the X axis
+       console.log('arr,',arr)
+       for(var k=0;k<arr.length; k++){
+        arr[k].group=arr[k].group.slice(0,20) + ' Num.' + (k+1)
+       }
        var groups = d3.map(arr, function(d){return(d.group)}).keys()
-       
-       var margin = {top: 30, right: 30, bottom: 90, left: 60},
+     
+       var margin = {top: 30, right: 30, bottom: 120, left: 60},
        width = 460 - margin.left - margin.right,
        height = 400 - margin.top - margin.bottom;
        var svg = d3.select(this.ref.current)
@@ -62,7 +76,7 @@ class UprightBarChart extends Component {
      
        // Add Y axis
        var y = d3.scaleLinear()
-         .domain([0, 1400])
+         .domain([0, max])
          .range([ height, 0 ]);
        svg.append("g")
          .call(d3.axisLeft(y));
@@ -85,7 +99,7 @@ class UprightBarChart extends Component {
          .data(arr)
          .enter()
          .append("g")
-           .attr("transform", function(d) { return "translate(" + x(d.group) + ",0)"; })
+           .attr("transform", function(d) { console.log('d.group,',d.group); return "translate(" + x(d.group) + ",0)"; })
          .selectAll("rect")
          .data(function(d) { return subgroups.map(function(key) {
               return {key: key, value: d[key]}; 
@@ -93,9 +107,9 @@ class UprightBarChart extends Component {
         })
          .enter().append("rect")
            .attr("x", function(d) { return xSubgroup(d.key); })
-           .attr("y", function(d) { return y(d.value); })
+           .attr("y", function(d) { return y(Math.ceil(d.value.replace(',',''))); })
            .attr("width", xSubgroup.bandwidth())
-           .attr("height", function(d) { return height - y(d.value); })
+           .attr("height", function(d) { return height - y(Math.ceil(d.value.replace(',',''))); })
            .attr("fill", function(d) { return color(d.key); });
     }
     render() {

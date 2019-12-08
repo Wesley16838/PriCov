@@ -34,7 +34,7 @@ class Homepage extends Component {
                 <h1>Dashboard</h1>
                 <CreatePanel/>
                 {/* <Getpanel id={this.state.email}/> */}
-                <Getpanel id="email@mail.com"/>
+                <Getpanel id={this.state.email}/>
             </div>
         </div>
       

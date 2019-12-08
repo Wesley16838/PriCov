@@ -31,7 +31,7 @@ async function doPasswordUpdate(password) {
 }
 
 async function doSignOut() {
-  localStorage.removeItem('displayName')
+
   await auth.signOut();
 }
 

@@ -5,6 +5,23 @@ import googleLogo from "./../../Assets/img/logo/google.svg"
 import {
   withRouter
 } from 'react-router-dom'
+import { Mutation } from 'react-apollo'
+import gql from 'graphql-tag'
+const POST_MUTATION = gql`
+  mutation PostMutation($email: String!) {
+    adduser(email: $email) {
+      _id
+      email
+      History{
+          title
+          price
+          sale
+          img
+          url
+      }
+    }
+  }
+`
 const INITIAL_STATE = {
   email: "",
   password: "",
@@ -14,9 +31,10 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      ...INITIAL_STATE,
- 
+  
+      ...INITIAL_STATE 
      };
+     console.log('sign in state,',this.state.email)
   }
   handleChange = e => {
     let newState = {};
@@ -40,7 +58,7 @@ class SignUp extends Component {
    
       await auth.doSignInWithEmailAndPassword(email, password);
    
-      this.setState({ ...INITIAL_STATE });
+      // this.setState({ ...INITIAL_STATE });
     
       this.props.history.push("./home");
     } catch (e) {
@@ -66,10 +84,13 @@ class SignUp extends Component {
   async socialSignOn(provider) {
     try {
       await auth.doSocialSignIn(provider);
-
+   
       // let token = await auth.currentUser
+      // console.log('token,',token)
 
-      this.setState({ ...INITIAL_STATE });
+      this.setState({ ...INITIAL_STATE },
+        console.log(this.state)
+        );
       this.props.history.push("./home");
     } catch (error) {
       // Handle Errors here.
@@ -123,13 +144,33 @@ class SignUp extends Component {
                     </div>
                   </form>
         
-
-                  <button onClick={() => this.socialSignOn("google")} type="button" className="google-button">
-                    <span className="google-button__icon">
-                      <img src={googleLogo}/>
-                    </span>
-                    <span className="google-button__text">Sign in with Google</span>
-                  </button>
+                  {/* <Mutation mutation={POST_MUTATION}>
+                    {(adduser, { data }) => (
+                      <div>
+                        <form
+                          onSubmit={async e => {
+                            e.preventDefault();
+                            this.socialSignOn("google")
+                              .then(function(value){
+                                console.log('local itme1,',localStorage.getItem('useremail'))
+                                adduser({ variables: { email:localStorage.getItem('useremail') } });
+                                console.log('local itme2,',localStorage.getItem('useremail'))
+                              }
+                            )
+                            ;
+                          }}
+                        >
+                        
+                        <button type="submit" className="google-button">
+                          <span className="google-button__icon">
+                            <img src={googleLogo}/>
+                          </span>
+                          <span className="google-button__text">Sign in with Google</span>
+                        </button>
+                        </form>
+                      </div>
+                    )}
+                  </Mutation> */}
                 </div>
               </div>
     );

@@ -101,7 +101,7 @@ class Table extends React.Component{
                     if(d.value == 'NA'){
                         return "<img style=\"width:150px; height:150px\" src =\"" + noImage + "\">"
                     }else{
-
+                        return "<img style=\"width:150px; height:auto\" src =\"" + d.value + "\">"
                     }
                     
                 }else{
