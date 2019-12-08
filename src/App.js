@@ -94,6 +94,7 @@ class App extends Component {
   //   });
   // }
   render() {
+    console.log('app render')
     const { loading } = this.state;
 
     if (loading) {
@@ -110,10 +111,10 @@ class App extends Component {
           <Header email={this.state.email}/>
           <Switch>
             <Route exact path="/" component={Landingpage}></Route>
-            <Route path="/signin" component={SigninContainer} />
+            <Route path="/signin" render={(props) => <SigninContainer {...props} />}/>
             <PrivateRoute path="/home" component={Homepage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser}/>
             <PrivateRoute path="/search" component={Searchpage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser}/>
-            <PrivateRoute path="/dashboard" component={Dashboardpage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser}/>
+            <PrivateRoute path="/dashboard/:keyword" component={Dashboardpage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser}/>
           </Switch>
           
           <Footer/>
@@ -127,10 +128,7 @@ const PrivateRoute = ({ component: Component,authenticated,currentUser,email, ..
   <Route
     {...rest}
     render={props =>{
-      console.log('email,',email)
-      console.log('auth,',authenticated)
-      console.log('user,',currentUser)
-      // if(JSON.parse(localStorage.getItem('authUser'))){
+     
       if( authenticated === true){
         return <Component email = {email} {...props} {...rest} />
       }else{

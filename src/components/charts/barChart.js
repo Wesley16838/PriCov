@@ -8,7 +8,8 @@ class BarChart extends React.Component{
         // console.log('props.data',props.data)
         this.state={
             // data:{CellPhone:50,Laptop:40,PhoneCase:30}//fake data
-            data:props.data
+            data:props.data,
+            max:props.max
         }
     }
     componentDidMount(){
@@ -22,7 +23,16 @@ class BarChart extends React.Component{
         width = 460 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
         var data = this.state.data
-        console.log('DATA,',data);
+        var max = Math.ceil(this.state.max)
+        var str_max = max.toString()
+        var len = max.toString().length 
+        for(var j=len-1;j>0;j--){
+          
+          max = max - (parseInt(str_max[j])*Math.pow(10, len-j-1));
+    
+        }
+        max = max + Math.pow(10, len-1)
+        console.log('max,',max)
     // append the svg object to the body of the page
     var svg = d3.select(this.ref.current)
     //   .append("svg")
@@ -39,19 +49,20 @@ class BarChart extends React.Component{
       // Add X axis
       var x = d3.scaleLinear()
         .range(colorRange)
-        .domain([0, 1800])
+        .domain([0, max])
         .range([ 0, 400]);
+      // console.log('x,',x(1))
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
         .selectAll("text")
           .attr("transform", "translate(-10,0)rotate(-45)")
           .style("text-anchor", "end");
-    
+      
       // Y axis
       var y = d3.scaleBand()
         .range([ 0, height ])
-        .domain(data.map(function(d) { return d.title; }))
+        .domain(data.map(function(d) { return d.title.substring(0,35); }))
         .padding(.5);
       svg.append("g")
         .call(d3.axisLeft(y).ticks(8, "$.0f"))
@@ -76,16 +87,18 @@ class BarChart extends React.Component{
         .enter()
         .append("rect")
         .attr("x", x(0) )
-        .attr("y", function(d) { return y(d.title); })
-        .attr("width", function(d) { return x(d.price); })
+        .attr("y", function(d) {return y(d.title.substring(0,35)); })
+        .attr("width", function(d) {return x(Math.round(d.price.replace(',',''))); })
         .attr("height", 15 )
         .attr("fill", "url(#linear-gradient)")
-   
+
+
+
     }
     render() {
       
        return <div className="barchart">
-         <svg width="600" height="350" viewBox="0 0 600 350" preserveAspectRatio="xMidYMid meet" ref={this.ref} />
+         <svg width="700" height="350" viewBox="0 0 600 350" preserveAspectRatio="xMidYMid meet" ref={this.ref} />
           </div>
     }
 }

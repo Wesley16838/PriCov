@@ -94,14 +94,19 @@ class Getpanel extends Component {
                    
                     let historyobjarr = new Array(0);
                     for(var x in historyobj){
+                        let re = historyobj[x].sort(function(a, b){return a.price.replace(',','') - b.price.replace(',','')}).slice(0,9);
+                        for(var i = 0; i<re.length; i++){
+                            re[i]['title'] = re[i]['title']
+                        }
                         let tmp = {
                             productName: x,
                             stastistic: stasticobj[x],
-                            result: historyobj[x].slice(0,9)
+                            result: re,
+                            max:re[re.length-1].price,
                         }
                         historyobjarr.push(tmp);
                     }
-               
+                    console.log('historyobjarr,',historyobjarr)
                     return (
                         <PanelList data={historyobjarr} />
                     )

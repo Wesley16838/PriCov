@@ -11,8 +11,10 @@ class Dashboardpage extends Component {
     console.log('in Dashboard!')
     super(props);
     this.state = {
-        email: this.props.email
+        email: this.props.email,
+        keyword: this.props.match.params.keyword// url params
     }
+    console.log('keyword,',this.state.keyword)
   }
   componentWillMount(){
         console.log("in homepage componentWillMount!!!")
@@ -24,7 +26,8 @@ class Dashboardpage extends Component {
     console.log("in dashboard render!!!")
     return(
    
-            <Getdashboard id="someemail@email.com"/>
+            <Getdashboard id={this.state.email} keyword={this.state.keyword}/>
+     
            
 
       

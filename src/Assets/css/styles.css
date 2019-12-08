@@ -375,6 +375,7 @@ h4 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 110px; }
   .panelList section {
     width: 600px;
@@ -406,6 +407,7 @@ h4 {
       bottom: 0;
       left: 0;
       width: 100%;
+      height: 80px;
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 15px;
       background-color: #BCE0FD; }
@@ -432,14 +434,18 @@ h4 {
           opacity: 1;
           padding-left: 10px; }
     .panelList section .panelList-logo {
-      width: 40%; }
+      width: 40%;
+      height: 100%; }
       .panelList section .panelList-logo ul {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding-left: 30px; }
+        padding-left: 30px;
+        height: 100%;
+        margin: 0px; }
       .panelList section .panelList-logo ul li {
         list-style-type: none;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center; }

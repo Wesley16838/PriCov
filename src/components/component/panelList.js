@@ -28,10 +28,10 @@ componentWillMount(){
     let li = null;
     let section = null;
     let logo = null;
-    let logo_arr=[]
+    
   
     section = this.state.data && this.state.data.map(next => {
-
+        let logo_arr=[]
         for(var i in next.stastistic){
         
             if(next.stastistic[i]!==0){
@@ -46,7 +46,7 @@ componentWillMount(){
          
             return (
             <li key={item.title}>
-             - {item.title} ({item.website})
+             - {item.title.slice(0,30)+'...'} ({item.website})
             </li>
             )
         }
@@ -60,7 +60,7 @@ componentWillMount(){
             <ul>
                 {li}
             </ul>
-            <BarChart data={next.result}/>
+            <BarChart data={next.result} max={next.max}/>
             <div className="panelList-console">
            
                     <div className="panelList-logo">
@@ -91,7 +91,7 @@ componentWillMount(){
                    
                     </div>
                     <div className="panelList-panel">
-                        <Link to={`/search`}>Go to Console<img src={arrow} alt="arrow"/></Link>
+                        <Link to={'/dashboard/'+ next.productName}>Go to Console<img src={arrow} alt="arrow"/></Link>
                     </div>
                     
            
