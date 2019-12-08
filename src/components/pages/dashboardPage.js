@@ -24,7 +24,7 @@ class Dashboardpage extends Component {
     console.log("in dashboard render!!!")
     return(
    
-            <Getdashboard id="someemail@email.com"/>
+            <Getdashboard id="email@mail.com"/>
            
 
       

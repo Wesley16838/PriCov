@@ -59,12 +59,14 @@ class Getdashboard extends Component {
     }
 
     render() {
+
         return (
             <Query query={FEED_QUERY} variables={{ email:this.state.email }}>
                 {({ loading, error, data }) => {
                     if (loading) return <div>Fetching</div>
                     if (error) return <div>Error</div>
-             
+                    console.log('getdashboard state',this.state)
+                    console.log('getdashboard data',data)
                     const user = data.finduser
                     let obj = {
                         amazon: 0,
@@ -103,7 +105,7 @@ class Getdashboard extends Component {
                         }
                         historyobjarr.push(tmp);
                     }
-                  
+                    
                     historyobjarr[0]['result_new'] = []
                     //product image,product name,price, website, onsale, url 
                     for(var i=0; i<historyobjarr[0].result.length;i++){
