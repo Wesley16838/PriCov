@@ -45,9 +45,9 @@ class Getdashboard extends Component {
                     return 'amazon';
                 }
             }
-            if(x < tmp.length - 6){
-                if(tmp.charAt(x) === 't' && tmp.charAt(x+1) === 'a' && tmp.charAt(x+2) === 'r' && tmp.charAt(x+3) === 'g' && tmp.charAt(x+4) === 'e' && tmp.charAt(x+5) === 't'){
-                    return 'target';
+            if(x < tmp.length - 4){
+                if(tmp.charAt(x) === 'e' && tmp.charAt(x+1) === 'b' && tmp.charAt(x+2) === 'a' && tmp.charAt(x+3) === 'y'){
+                    return 'ebay';
                 }
             }
             if(x < tmp.length - 7){
@@ -72,7 +72,7 @@ class Getdashboard extends Component {
 
                     let obj = {
                         amazon: 0,
-                        target: 0,
+                        ebay: 0,
                         bestbuy: 0,
                         other: 0
                     }
@@ -86,7 +86,7 @@ class Getdashboard extends Component {
                         if(stasticobj[history[x].keyword] == undefined){
                             stasticobj[history[x].keyword] = {
                                 amazon: 0,
-                                target: 0,
+                                ebay: 0,
                                 bestbuy: 0,
                                 other: 0
                             };
@@ -103,11 +103,15 @@ class Getdashboard extends Component {
                         let tmp = {
                             productName: x,
                             stastistic: stasticobj[x],
-                            result: historyobj[x].slice(0,9)
+                            result: historyobj[x]
                         }
                         historyobjarr.push(tmp);
                     }
-                  
+                    if(historyobjarr.length == 0){
+                        return (
+                            <p>404 Not Found</p>
+                        )
+                    }
                     historyobjarr[0]['result_new'] = []
                     //product image,product name,price, website, onsale, url 
                     for(var i=0; i<historyobjarr[0].result.length;i++){
@@ -124,7 +128,7 @@ class Getdashboard extends Component {
                         
                         historyobjarr[0]['result_new'].push(obj_new)
                     }
-                    historyobjarr[0]['result_new'] = historyobjarr[0]['result_new'].sort(function(a, b){return a.Price.replace(',','') - b.Price.replace(',','')}).slice(0,9);
+                    historyobjarr[0]['result_new'] = historyobjarr[0]['result_new'].sort(function(a, b){return a.Price.replace(',','') - b.Price.replace(',','')});
                     console.log('historyobjarr,',historyobjarr)
                     return (
                         <Table data={historyobjarr} />

@@ -34,7 +34,7 @@ class Getstatus extends Component {
           let obj1 = {
             amazon: 0,
             bestbuy: 0,
-            target: 0
+            ebay: 0
           }
           caltotal(data , obj1);
           let obj2= caldep(data);
@@ -69,9 +69,9 @@ function caltotal(data , obj){
           obj['bestbuy'] += data.getstat[x].department[y].amount;
         }
         break;
-      case 'target':
+      case 'ebay':
         for(var y = 0 ; y < data.getstat[x].department.length ; y++){
-          obj['target'] += data.getstat[x].department[y].amount;
+          obj['ebay'] += data.getstat[x].department[y].amount;
         }
       break;
       default:

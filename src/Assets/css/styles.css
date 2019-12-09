@@ -16,6 +16,8 @@
       font-size: 45px;
       color: #fff;
       margin-left: 16px; }
+      .dashboard_title h1 span a {
+        vertical-align: bottom; }
 
 .dashboard_body {
   margin-top: -120px;
@@ -53,6 +55,8 @@
     align-items: center;
     justify-content: center; }
   .dashboard_body .dashboard_table {
+    height: 1600px;
+    overflow-y: scroll;
     z-index: 999;
     position: relative;
     padding: 20px 20px;
@@ -85,13 +89,26 @@
       background: #fff;
       color: #858585; }
 
+.productCompare .tableStatus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around; }
+  .productCompare .tableStatus span {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .productCompare .tableStatus span h4 {
+      margin-left: 30px; }
+
 .productCompare h2 {
-  margin-top: 0px; }
+  margin-top: 0px;
+  margin-bottom: 10px; }
 
 .productCompare .barchart {
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+  display: block;
+  overflow-x: scroll; }
 
 /*Vars*/
 /*RWD*/
@@ -140,6 +157,8 @@ header {
     transform: translateY(-50%); }
     header .logo h1 {
       margin: auto; }
+    header .logo a {
+      color: #000; }
   header nav,
   header nav ul,
   header nav ul li {
@@ -286,6 +305,12 @@ footer {
   align-items: center;
   justify-content: center; }
 
+.notFound {
+  height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
 /*Vars*/
 /*RWD*/
 /*Mixins*/
@@ -382,6 +407,7 @@ h4 {
     height: 600px;
     padding: 30px;
     box-shadow: 0px 6px 6px #00000029;
+    margin: 20px 0px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -439,7 +465,6 @@ h4 {
       .panelList section .panelList-logo ul {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         padding-left: 30px;
         height: 100%;
         margin: 0px; }
@@ -448,7 +473,8 @@ h4 {
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content: center; }
+        justify-content: center;
+        margin: 0px 15px; }
         .panelList section .panelList-logo ul li img {
           width: 60px; }
 
@@ -607,6 +633,9 @@ h4 {
   display: flex;
   flex-direction: column;
   padding: 20px 200px 140px 200px; }
+  .search_form h3 span {
+    color: #d30000;
+    font-size: 12px; }
   .search_form h1 {
     margin: 0px 0px 0px 0px; }
   .search_form .choices {
@@ -615,6 +644,15 @@ h4 {
     width: 360px;
     height: 150px;
     justify-content: space-evenly; }
+    .search_form .choices select {
+      background-color: #0563af;
+      color: white;
+      padding: 12px;
+      width: 250px;
+      height: 30px;
+      border: none;
+      font-size: 20px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); }
   .search_form input[type=checkbox] {
     margin-right: 16px; }
   .search_form input[type=submit] {
@@ -624,16 +662,21 @@ h4 {
 .search-bg-l {
   position: relative; }
 
-.search-body button {
-  width: fit-content;
-  margin-left: 200px;
-  margin-top: 70px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0);
-  padding: 0;
-  transition: ease .3s; }
-  .search-body button:hover {
-    opacity: .8; }
+.search-body {
+  margin-top: 30px; }
+  .search-body .basicBtn {
+    margin-top: 50px;
+    width: 250px; }
+  .search-body .arrowSearchBtn {
+    width: fit-content;
+    margin-left: 200px;
+    margin-top: 70px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0;
+    transition: ease .3s; }
+    .search-body .arrowSearchBtn:hover {
+      opacity: .8; }
 
 .signin-container {
   background-image: url("./../img/signinpage/signin.png");

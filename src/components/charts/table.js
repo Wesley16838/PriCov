@@ -1,8 +1,9 @@
 import React, {createRef} from 'react';
 import * as d3 from 'd3';
-
+import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom"
 import DashboardPie from './dashboardPie'
 import noImage from './../../Assets/img/dashboardpage/1x/noImage1.png'
+import arrow from './../../Assets/img/dashboardpage/homepage.png'
 import CompareBar from './compareBar'
 class Table extends React.Component{
     constructor(props){
@@ -118,18 +119,19 @@ class Table extends React.Component{
         return <div>
                     <div className="dashboard_title">
                         <h1>
-                            Dashboard<span>{this.state.title}</span>
+                            Dashboard<span>{this.state.title} <Link to='/home'><img src={arrow} alt='gohome'/></Link></span>
 
                         </h1>
                     </div>
                     <div className="dashboard_body">
                         <div className="dashboard_table">
                     
-                                <h3>Product Summary (Top9)</h3>
+                                <h3>Product Summary (All Products)</h3>
                     
                         </div> 
                         <div className="bottomPieGroup">
                             <DashboardPie data={this.state.status}/>
+                            {/* <CompareBar data={this.state.data.slice(0,9)}/> */}
                             <CompareBar data={this.state.data}/>
                         </div>
                        

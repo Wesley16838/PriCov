@@ -4,6 +4,9 @@ import { auth } from "../firebase";
 import SignIn from "../component/signin"
 import SignUp from "../component/signup"
 class signinpage extends Component {
+  componentDidMount() {
+    document.title = this.props.title
+  }
   render() {
     return(
       

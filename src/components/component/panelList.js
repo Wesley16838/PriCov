@@ -8,7 +8,7 @@ import BarChart from './../charts/barChart'
 import arrow from './../../Assets/img/logo/Forward_arrow.png'
 import amazon from './../../Assets/img/logo/amazon_logo.png'
 import bestbuy from './../../Assets/img/logo/bestbuy.png'
-import target from './../../Assets/img/logo/target.png'
+import ebay from './../../Assets/img/logo/eBay.png'
 class PanelList extends Component {
 constructor(props){
     super(props);
@@ -32,6 +32,7 @@ componentWillMount(){
   
     section = this.state.data && this.state.data.map(next => {
         let logo_arr=[]
+
         for(var i in next.stastistic){
         
             if(next.stastistic[i]!==0){
@@ -40,7 +41,7 @@ componentWillMount(){
             }
         }
 
-      
+        console.log('logo_arr,',logo_arr)
       
         li = next.result.slice(0,3).map(item=>{
          
@@ -72,10 +73,10 @@ componentWillMount(){
                                     <img src={amazon} alt='amazon'/>
                                     </li>
                                 )
-                             }else if(item === 'target'){
+                             }else if(item === 'ebay'){
                                 return(                      
                                     <li >
-                                    <img src={target} alt='target'/>
+                                    <img src={ebay} alt='ebay'/>
                                     </li>
                                 )
                              }else if(item === 'bestbuy' ){
