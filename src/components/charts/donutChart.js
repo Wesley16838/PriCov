@@ -67,7 +67,7 @@ class DonutChart extends React.Component{
             <svg width="350" height="350" viewBox="0 0 350 350" preserveAspectRatio="xMidYMid meet" ref={this.ref} />
         </div>
         <div className="landing-body-third-part2">
-           <h2>Top 3 Product</h2>
+           <h2>Top 3 searching Key Word</h2>
            <div className="landing-body-second-part1-status">
                <div className="product-list">
                    <h4>{Object.keys(this.state.data)[0]}</h4>

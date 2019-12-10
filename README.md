@@ -62,9 +62,9 @@ $ gulp
 ## Team
 
 - <a href="https://github.com/Wesley16838" target="_blank">Wei-Hsuan, Wong</a>
-- Shih-Hao, Lo
-- Yangyang Liu
-- Haolin Yang
+- <a href="https://github.com/Shih-Hao-Lo" target="_blank">Shih-Hao, Lo</a>
+- <a href="https://github.com/kingdom930414" target="_blank">Yangyang Liu</a>
+- <a href="https://github.com/TyrangYang" target="_blank">Haolin Yang</a>
 
 ---
 
