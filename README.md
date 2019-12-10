@@ -1,68 +1,84 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# PriCov
 
-## Available Scripts
+> Price Comparison Visualization
 
-In the project directory, you can run:
+> Visualize products' info from popular online shopping website
 
-### `yarn start`
+[![npm version](https://img.shields.io/npm/v/if-node-version.svg?style=flat)](https://www.npmjs.com/package/if-node-version)
+[![Node version](https://img.shields.io/node/v/if-node-version.svg?style=flat)](https://www.npmjs.com/package/if-node-version)
+[![Build Status](https://travis-ci.org/mysticatea/if-node-version.svg?branch=master)](https://travis-ci.org/mysticatea/if-node-version)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[![INSERT YOUR GRAPHIC HERE](page.png)]()
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Allow users to search product from ebay, Amazon and BestBuy using web mining and visualize products' info as different charts.
+- User can get Real-Time products' info quickly with PriCov
+- Now only available for TV / Phone / Laptop /Game Console
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Table of Contents
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Installation](#installation)
+- [Features](#features)
+- [Team](#team)
+- [License](#license)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+## Installation
+### Clone
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Clone this repo to your local machine using `https://github.com/Wesley16838/PriCov.git`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> Open the terminal in the Visual Studio
+> and run the code in the terminal as follows:
+```shell
+$ npm i
+$ npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> Add new termincal and now run gulp to manage tasks
 
-## Learn More
+```shell
+$ gulp
+```
+>Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Features
+- User Sign Up/Log In/Authoriztion/Reset password/ Remove account with Firebase
+- Search product and run data mine from popular e-commerce website
+- Create panel for products' info in user dashboard
+- Allow user directly see the record what they searched before in the user dashboard
+- Allow user see the detail for each panel in user dashboard(Include table chart, Pie chart and Line chart)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Team
 
-### Analyzing the Bundle Size
+- <a href="https://github.com/Wesley16838" target="_blank">Wei-Hsuan, Wong</a>
+- Shih-Hao, Lo
+- Yangyang Liu
+- Haolin Yang
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+---
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## License
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2019 © <a href="http://localhost:3000" target="_blank">PriCov</a>.
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+

@@ -616,6 +616,12 @@ h4 {
         .landing-body section:nth-child(3) .landing-body-third-part1 .product-list span, .landing-body section:nth-child(3) .landing-body-third-part2 .product-list span {
           display: flex; }
 
+.history {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
 .search-bg {
   background-image: url("./../img/searchpage/searchbg.png");
   background-position: 250px;

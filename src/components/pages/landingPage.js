@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route,NavLink } from "react-router-dom
 
 import Getstatus from'./../charts/Getstatus'
 import Getstatistic from'./../charts/Getstatistic'
+import LineChart from './../charts/linechart'
 class Landingpage extends Component {
   constructor(props){
     super(props);
@@ -63,7 +64,7 @@ class Landingpage extends Component {
 
            <Getstatus/>
            <Getstatistic/>
-   
+            <LineChart/>
           <section>
             
           </section>
