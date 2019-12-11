@@ -3,8 +3,19 @@ import { BrowserRouter as Router, Switch, Route,NavLink } from "react-router-dom
 
 import Getstatus from'./../charts/Getstatus'
 import Getstatistic from'./../charts/Getstatistic'
+import LineChart from './../charts/linechart'
 class Landingpage extends Component {
-  
+  constructor(props){
+    super(props);
+    
+    this.state = {
+     
+    }
+    
+  }
+  componentDidMount() {
+    document.title = this.props.title
+  }
   render() {
     return(
       <div className="container">
@@ -14,9 +25,16 @@ class Landingpage extends Component {
             <h1>PriCov visualizes price comparison</h1>
             <h2>Users save money &amp; time</h2>
             <div className="landing-header-btn">
-              <NavLink className="basicBtn_reverse" to="/signin">
-                <h3>Get Started</h3>
-              </NavLink>
+              {
+                    this.props.email
+                    ? <NavLink className="basicBtn_reverse" to="/home">
+                    <h3>Go to Console</h3>
+                  </NavLink>
+                    : <NavLink className="basicBtn_reverse" to="/signin">
+                    <h3>Get Started</h3>
+                  </NavLink>
+                }
+             
             </div>
           </section>
           <section></section>
@@ -46,7 +64,7 @@ class Landingpage extends Component {
 
            <Getstatus/>
            <Getstatistic/>
-   
+            <LineChart/>
           <section>
             
           </section>

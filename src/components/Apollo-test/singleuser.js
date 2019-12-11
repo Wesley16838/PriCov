@@ -44,9 +44,9 @@ class Singleuser extends Component {
                     return 'amazon';
                 }
             }
-            if(x < tmp.length - 6){
-                if(tmp.charAt(x) === 't' && tmp.charAt(x+1) === 'a' && tmp.charAt(x+2) === 'r' && tmp.charAt(x+3) === 'g' && tmp.charAt(x+4) === 'e' && tmp.charAt(x+5) === 't'){
-                    return 'target';
+            if(x < tmp.length - 4){
+                if(tmp.charAt(x) === 'e' && tmp.charAt(x+1) === 'b' && tmp.charAt(x+2) === 'a' && tmp.charAt(x+3) === 'y'){
+                    return 'ebay';
                 }
             }
             if(x < tmp.length - 7){
@@ -69,7 +69,7 @@ class Singleuser extends Component {
                     const user = data.finduser
                     let obj = {
                         amazon: 0,
-                        target: 0,
+                        ebay: 0,
                         bestbuy: 0,
                         other: 0
                     }

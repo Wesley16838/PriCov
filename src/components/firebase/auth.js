@@ -34,6 +34,9 @@ async function doSignOut() {
 
   await auth.signOut();
 }
+async function removeUser(){
+  await auth.currentUser.delete();
+}
 
 export {
   doCreateUserWithEmailAndPassword,
@@ -41,5 +44,6 @@ export {
   doSignInWithEmailAndPassword,
   doPasswordReset,
   doPasswordUpdate,
-  doSignOut
+  doSignOut,
+  removeUser
 };

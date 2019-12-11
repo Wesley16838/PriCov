@@ -20,9 +20,9 @@ class Homepage extends Component {
     componentWillMount(){
         console.log("in homepage componentWillMount!!!")
     }
-  componentDidMount(){
-    console.log("in homepage componentDidMount!!!")
-  }
+    componentDidMount() {
+      document.title = this.props.title
+    }
   render() {
     console.log("in homepage render!!!")
     return(

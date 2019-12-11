@@ -23,7 +23,12 @@ class BarChart extends React.Component{
         width = 460 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
         var data = this.state.data
-        var max = Math.ceil(this.state.max)
+        console.log('bf home bar title',data);
+        for(var l = 0; l<data.length; l++){
+          data[l].title = data[l].title.slice(0,30) + " Num." + (l+1)  
+        }
+        console.log('af home bar title',data);
+        var max = Math.ceil(this.state.max.replace(',',''))
         var str_max = max.toString()
         var len = max.toString().length 
         for(var j=len-1;j>0;j--){
@@ -62,7 +67,7 @@ class BarChart extends React.Component{
       // Y axis
       var y = d3.scaleBand()
         .range([ 0, height ])
-        .domain(data.map(function(d) { return d.title.substring(0,35); }))
+        .domain(data.map(function(d) { return d.title; }))
         .padding(.5);
       svg.append("g")
         .call(d3.axisLeft(y).ticks(8, "$.0f"))
@@ -87,7 +92,7 @@ class BarChart extends React.Component{
         .enter()
         .append("rect")
         .attr("x", x(0) )
-        .attr("y", function(d) {return y(d.title.substring(0,35)); })
+        .attr("y", function(d) {return y(d.title); })
         .attr("width", function(d) {return x(Math.round(d.price.replace(',',''))); })
         .attr("height", 15 )
         .attr("fill", "url(#linear-gradient)")

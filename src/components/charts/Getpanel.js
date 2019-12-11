@@ -44,9 +44,9 @@ class Getpanel extends Component {
                     return 'amazon';
                 }
             }
-            if(x < tmp.length - 6){
-                if(tmp.charAt(x) === 't' && tmp.charAt(x+1) === 'a' && tmp.charAt(x+2) === 'r' && tmp.charAt(x+3) === 'g' && tmp.charAt(x+4) === 'e' && tmp.charAt(x+5) === 't'){
-                    return 'target';
+            if(x < tmp.length - 4){
+                if(tmp.charAt(x) === 'e' && tmp.charAt(x+1) === 'b' && tmp.charAt(x+2) === 'a' && tmp.charAt(x+3) === 'y'){
+                    return 'ebay';
                 }
             }
             if(x < tmp.length - 7){
@@ -61,14 +61,15 @@ class Getpanel extends Component {
     render() {
         return (
             <Query query={FEED_QUERY} variables={{ email:this.state.email }}>
-                {({ loading, error, data }) => {
+                {({ loading, error, data, refetch }) => {
                     if (loading) return <div>Fetching</div>
                     if (error) return <div>Error</div>
              
-                    const user = data.finduser
+                    var user = data.finduser
+                    refetch().then(data => user = data)
                     let obj = {
                         amazon: 0,
-                        target: 0,
+                        ebay: 0,
                         bestbuy: 0,
                         other: 0
                     }
@@ -82,7 +83,7 @@ class Getpanel extends Component {
                         if(stasticobj[user.History[x].keyword] == undefined){
                             stasticobj[user.History[x].keyword] = {
                                 amazon: 0,
-                                target: 0,
+                                ebay: 0,
                                 bestbuy: 0,
                                 other: 0
                             };

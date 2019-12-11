@@ -65,7 +65,7 @@ class UprightBarChart extends Component {
        // Add X axis
        var x = d3.scaleBand()
            .domain(groups)
-           .range([0, width])
+           .range([0, 1500])
            .padding([0.2])
         svg.append("g")
            .attr("transform", "translate(0," + height + ")")
@@ -116,8 +116,26 @@ class UprightBarChart extends Component {
         
         return  <section className="productCompare">
         <h2>Each Product Comparison</h2>
+        <div className="tableStatus">
+           <span>
+              <svg width="70" height="40">
+                  <rect width="70" height="40" fill='#e41a1c' />
+              </svg>
+              <h4>Original Price</h4>
+          </span>
+          
+          <span>
+              <svg width="70" height="40">
+                  <rect width="70" height="40" fill='#377eb8' />
+              </svg>
+              <h4>Special Offer</h4>
+          </span>
+         
+        </div>
+         
+          
         <div className="barchart">
-            <svg width="500" height="450" viewBox="-20 -30 350 450" preserveAspectRatio="xMidYMid meet" ref={this.ref} />
+            <svg width="1600" height="450" viewBox="-20 -30 1500 450" preserveAspectRatio="xMidYMid meet" ref={this.ref} />
         </div></section>
     }
 }

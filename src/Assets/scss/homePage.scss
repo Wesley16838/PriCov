@@ -73,6 +73,7 @@
         height: 600px;
         padding:30px;
         box-shadow: 0px 6px 6px #00000029;
+        margin:20px 0px;
         border-radius: 15px;
         display: flex;
         flex-direction: column;
@@ -144,7 +145,7 @@
                 ul{
                     display: flex;
                     flex-direction: row;
-                    justify-content: space-between;
+                    // justify-content: space-between;
                     padding-left:30px;
                     height:100%;
                     margin: 0px;
@@ -155,7 +156,7 @@
                     display:flex;
                     align-items: center;
                     justify-content: center;
-
+                    margin:0px 15px;
                     img{
                         width:60px;
                     }

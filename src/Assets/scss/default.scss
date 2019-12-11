@@ -19,6 +19,9 @@ header{
         h1{
             margin: auto;
         }
+        a{
+          color:$black;
+        }
     }
     nav,
     nav ul,
@@ -182,4 +185,10 @@ $duration: 1.4s;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.notFound{
+  height:calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

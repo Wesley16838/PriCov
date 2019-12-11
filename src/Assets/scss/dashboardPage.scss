@@ -17,6 +17,9 @@
             font-size: 45px;
             color: #fff;
             margin-left:16px;
+            a{
+                vertical-align: bottom;
+            }
         }
     }
 }
@@ -66,6 +69,8 @@
         justify-content: center;
     }
     .dashboard_table{
+        height:1600px;
+        overflow-y: scroll;
         z-index: 999;
         position: relative;
         // width:100%;
@@ -110,12 +115,27 @@
 }
 }
 .productCompare{
+    .tableStatus{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width:100%;
+        justify-content: space-around;
+        span{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            h4{
+                margin-left:30px;
+            }
+        }
+    }
     h2{
         margin-top: 0px;
+        margin-bottom: 10px;
     }
     .barchart{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
+        overflow-x:scroll;
         }
 }

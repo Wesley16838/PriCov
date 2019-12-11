@@ -22,7 +22,7 @@ class Header extends Component {
     return(
       <header>
         <div className="logo">
-            <h1>PriCov</h1>
+            <Link to="/home"><h1>PriCov</h1></Link>
         </div>
         <nav>
             <ul>

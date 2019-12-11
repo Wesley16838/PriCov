@@ -9,7 +9,7 @@ import Homepage from './components/pages/homePage'
 import Searchpage from './components/pages/searchPage'
 import SigninContainer from './components/pages/signinPage'
 import Dashboardpage from './components/pages/dashboardPage'
-
+import ErrorContainer from "./components/pages/ErrorContainer";
 
 //includes
 import './Assets/css/styles.min.css'//css file
@@ -21,6 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      scrollPixelsY: 0,
       email:null,
       authUser: null,
       loading:true,
@@ -51,6 +52,21 @@ class App extends Component {
       }
     });
   }
+  componentDidMount() {
+    let body = document.querySelector('body')
+    body.addEventListener('scroll', this.handleScroll);
+  }; 
+
+  componentWillUnmount() {
+    let body = document.querySelector('body')
+    body.removeEventListener('scroll', this.handleScroll);
+  }
+  handleScroll = () => {
+    this.setState({
+      scrollPixelsY: window.scrollY
+    });
+    console.log(this.state.scrollPixelsY);
+  };
   //
   // componentDidMount() {
    
@@ -110,11 +126,12 @@ class App extends Component {
          <div className="App">
           <Header email={this.state.email}/>
           <Switch>
-            <Route exact path="/" component={Landingpage}></Route>
-            <Route path="/signin" render={(props) => <SigninContainer {...props} />}/>
-            <PrivateRoute path="/home" component={Homepage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser}/>
-            <PrivateRoute path="/search" component={Searchpage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser}/>
-            <PrivateRoute path="/dashboard/:keyword" component={Dashboardpage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser}/>
+            <Route exact path="/" render={(props) => <Landingpage {...props} email={this.state.email} title="PriCov"/>}/>
+            <Route exact path="/signin" render={(props) => <SigninContainer {...props} title="Sign In or Sign Up"/>}/>
+            <PrivateRoute exact path="/home" component={Homepage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser} title="Your Panels"/>
+            <PrivateRoute exact path="/search" component={Searchpage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser} title="Search Products"/>
+            <PrivateRoute exact path="/dashboard/:keyword" component={Dashboardpage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser} title="DashBoard"/>
+            <Route render={(props) => <ErrorContainer {...props} email={this.state.email} title="Error"/>} />
           </Switch>
           
           <Footer/>
@@ -123,14 +140,14 @@ class App extends Component {
     )
   }
 }
-const PrivateRoute = ({ component: Component,authenticated,currentUser,email, ...rest }) => (
+const PrivateRoute = ({ component: Component,authenticated,currentUser,email,title, ...rest }) => (
   
   <Route
     {...rest}
     render={props =>{
      
       if( authenticated === true){
-        return <Component email = {email} {...props} {...rest} />
+        return <Component email = {email} title={title} {...props} {...rest} />
       }else{
         return  <Redirect
           to={{
