@@ -1,3 +1,44 @@
+.account {
+  display: flex;
+  width: 100%; }
+
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 30%;
+  height: 300px; }
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s; }
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd; }
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc; }
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 300px; }
+
 .dashboard {
   width: 100%; }
 
@@ -146,7 +187,33 @@ header {
   color: #fff;
   -webkit-box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.16);
-  box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.16); }
+  box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.16);
+  /* The container <div> - needed to position the dropdown content */
+  /* Dropdown Content (Hidden by Default) */
+  /* Links inside the dropdown */
+  /* Change color of dropdown links on hover */
+  /* Show the dropdown menu on hover */ }
+  header .dropdown {
+    position: relative;
+    display: inline-block; }
+  header .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2B64FF;
+    width: calc(100% - 4px);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border: 2px solid #2B64FF; }
+  header .dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; }
+  header .dropdown-content a:hover {
+    background-color: #fff;
+    color: #2B64FF; }
+  header .dropdown:hover .dropdown-content {
+    display: block; }
   header .logo {
     color: #000;
     position: absolute;

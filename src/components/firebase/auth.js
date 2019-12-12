@@ -25,9 +25,26 @@ async function doSocialSignIn(provider) {
 async function doPasswordReset(email) {
   await auth.sendPasswordResetEmail(email);
 }
-
-async function doPasswordUpdate(password) {
-  await auth.updatePassword(password);
+// async function reauth(passwordOld){
+//   var user = auth.currentUser;
+//   var credential = await firebase.auth.EmailAuthProvider.credential(
+//     user.email, 
+//     passwordOld
+//   );
+// }
+async function doPasswordUpdate(passwordOld,passwordNew) {
+  console.log('in do password update')
+  var user = auth.currentUser;
+  var credential = await firebase.auth.EmailAuthProvider.credential(
+    user.email, 
+    passwordOld
+);
+  console.log('af credential')
+  await user.reauthenticateWithCredential(credential)
+  console.log('af reauth')
+  await auth.currentUser.updatePassword(passwordNew)
+  console.log('af update')
+  
 }
 
 async function doSignOut() {
