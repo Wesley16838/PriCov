@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link ,Redirect} from "react-rou
 //components
 import Header from './components/headerComponent/header'
 import Footer from './components/footerComponent/footer'
+import Accountpage from './components/pages/accountPage'
 import Landingpage from './components/pages/landingPage'
 import Homepage from './components/pages/homePage'
 import Searchpage from './components/pages/searchPage'
@@ -128,6 +129,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={(props) => <Landingpage {...props} email={this.state.email} title="PriCov"/>}/>
             <Route exact path="/signin" render={(props) => <SigninContainer {...props} title="Sign In or Sign Up"/>}/>
+            <PrivateRoute exact path="/account" component={Accountpage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser} title="Your Panels"/>
             <PrivateRoute exact path="/home" component={Homepage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser} title="Your Panels"/>
             <PrivateRoute exact path="/search" component={Searchpage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser} title="Search Products"/>
             <PrivateRoute exact path="/dashboard/:keyword" component={Dashboardpage} email={this.state.email} authenticated={this.state.authenticated} currentUser={this.state.currentUser} title="DashBoard"/>
