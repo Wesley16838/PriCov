@@ -7,7 +7,7 @@
   border: 1px solid #ccc;
   background-color: #f1f1f1;
   width: 30%;
-  height: 300px; }
+  height: calc(100vh - 200px); }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
@@ -20,7 +20,8 @@
   outline: none;
   text-align: left;
   cursor: pointer;
-  transition: 0.3s; }
+  transition: 0.3s;
+  font-size: 16px; }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
@@ -33,11 +34,38 @@
 /* Style the tab content */
 .tabcontent {
   float: left;
-  padding: 0px 12px;
+  padding: 20px 40px;
   border: 1px solid #ccc;
   width: 70%;
   border-left: none;
-  height: 300px; }
+  height: calc(100vh - 240px); }
+
+/*Vars*/
+/*RWD*/
+/*Mixins*/
+html {
+  font-size: 16px; }
+
+/*General Setting*/
+body {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  font-size: 16px; }
+
+a {
+  text-decoration-line: none;
+  cursor: pointer; }
+
+h1 {
+  font-size: 60px; }
+
+h2 {
+  font-size: 45px; }
+
+h3 {
+  font-size: 36px; }
+
+h4 {
+  font-size: 20px; }
 
 .dashboard {
   width: 100%; }
@@ -75,8 +103,16 @@
       background: #fff;
       border-radius: 5px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-      width: 45%;
-      padding: 25px; }
+      width: 45%; }
+      @media all and (min-width: 1680px) {
+        .dashboard_body .bottomPieGroup section {
+          padding: 25px; } }
+      @media all and (min-width: 1480px) and (max-width: 1680px) {
+        .dashboard_body .bottomPieGroup section {
+          padding: 20px; } }
+      @media all and (max-width: 1480px) {
+        .dashboard_body .bottomPieGroup section {
+          padding: 15px; } }
       .dashboard_body .bottomPieGroup section .Dashboard-body-second-part1 h2 {
         margin-bottom: 10px;
         margin-top: 0px; }
@@ -84,6 +120,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between; }
+    @media all and (max-width: 1480px) {
+      .dashboard_body .Dashboard-body-second-part1-status {
+        flex-direction: column; } }
     .dashboard_body .Dashboard-body-second-part1-status .status-list {
       display: flex;
       flex-direction: row;
@@ -91,6 +130,15 @@
       margin-right: 20px; }
       .dashboard_body .Dashboard-body-second-part1-status .status-list span {
         margin-right: 30px; }
+        @media all and (min-width: 1680px) {
+          .dashboard_body .Dashboard-body-second-part1-status .status-list span {
+            margin-right: 25px; } }
+        @media all and (min-width: 1480px) and (max-width: 1680px) {
+          .dashboard_body .Dashboard-body-second-part1-status .status-list span {
+            margin-right: 15px; } }
+        @media all and (max-width: 1480px) {
+          .dashboard_body .Dashboard-body-second-part1-status .status-list span {
+            margin-right: 10px; } }
   .dashboard_body .Dashboard-body-second-part2 {
     display: flex;
     align-items: center;
@@ -188,6 +236,7 @@ header {
   -webkit-box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.16);
   box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.16);
+  z-index: 1000;
   /* The container <div> - needed to position the dropdown content */
   /* Dropdown Content (Hidden by Default) */
   /* Links inside the dropdown */
@@ -202,7 +251,7 @@ header {
     background-color: #2B64FF;
     width: calc(100% - 4px);
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 1000;
     border: 2px solid #2B64FF; }
   header .dropdown-content a {
     color: #fff;
@@ -731,9 +780,6 @@ h4 {
   .search_form input[type=submit] {
     margin-top: 30px;
     width: 168px; }
-
-.search-bg-l {
-  position: relative; }
 
 .search-body {
   margin-top: 30px; }

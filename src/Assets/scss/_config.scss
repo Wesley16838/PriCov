@@ -12,6 +12,25 @@ $md:768px;
 $lg:992px;
 $xl:1200px; //laptop 要照顧 1280 / 1366 / 1440
 $xxl:1480px; //大螢幕 要照顧 1680 / 1920
+$xxxl:1680px;
+//xxxl
+@mixin xxxl-width() {
+    @media all and (min-width: $xxxl) {
+                 @content;
+           }
+      }
+//xxl
+@mixin xxl-width() {
+    @media all and (min-width: $xxl)and (max-width: $xxxl) {
+                 @content;
+           }
+      }
+//xl
+@mixin xl-width() {
+  @media all and (max-width: $xxl) {
+                  @content;
+            }
+  }
 
 /*Mixins*/
 @mixin translateY($e) {
