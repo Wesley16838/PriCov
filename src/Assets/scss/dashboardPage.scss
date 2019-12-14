@@ -1,3 +1,4 @@
+@import "_config.scss";
 .dashboard{
     width:100%;
 }
@@ -10,6 +11,7 @@
     align-items: flex-end;
     z-index: 99;
     position: relative;
+  
     h1{
         margin-bottom:0px;
         span{
@@ -17,8 +19,12 @@
             font-size: 45px;
             color: #fff;
             margin-left:16px;
+            background: #009ceb;
             a{
                 vertical-align: bottom;
+                img{
+                    width: 40px;
+                }
             }
         }
     }
@@ -37,10 +43,22 @@
         margin-top: 55px;
         section{
             background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-            width:45%;
-            padding:25px;
+                border-radius: 5px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+                width:45%;
+            @include xxxl-width{
+            
+                padding:25px;
+            }
+            @include xxl-width{
+                
+                padding:20px;
+            }
+       
+            @include xl-width{
+                padding:15px;
+            }
+            
             .Dashboard-body-second-part1{
                 h2{
                     margin-bottom:10px;
@@ -53,6 +71,9 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        @include xl-width{
+            flex-direction: column;
+        }
         .status-list{
             display: flex;
             flex-direction: row;
@@ -60,6 +81,19 @@
             margin-right: 20px;
             span{
                 margin-right: 30px;
+                @include xxxl-width{
+            
+                    margin-right: 25px;
+                }
+                @include xxl-width{
+                    
+                    margin-right: 15px;
+                }
+           
+                @include xl-width{
+                    margin-right:10px;
+                }
+               
             }
         }
     }
@@ -84,7 +118,7 @@
         }
     table{
         .sale{
-            color:rgb(1, 197, 11);
+            color:#008a00;
         }
         .notsale{
             color:rgb(218, 0, 0);
@@ -108,9 +142,12 @@
         }
 		
     }
+    th{
+        color:rgb(0, 0, 0);
+    }
     tbody{
         background: #fff;  
-        color:rgb(133, 133, 133);
+        color:rgb(70, 70, 70);
     }
 }
 }
@@ -138,4 +175,7 @@
         display: block;
         overflow-x:scroll;
         }
+}
+.displayNone{
+    display: none;
 }

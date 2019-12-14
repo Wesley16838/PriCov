@@ -115,7 +115,7 @@ class UprightBarChart extends Component {
     render() {
         
         return  <section className="productCompare">
-        <h2>Each Product Comparison</h2>
+        <h3>Each Product Comparison</h3>
         <div className="tableStatus">
            <span>
               <svg width="70" height="40">

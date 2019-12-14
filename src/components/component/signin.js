@@ -117,24 +117,26 @@ class SignUp extends Component {
                   <form onSubmit={this.onSubmit.bind(this)}>
                     
                     <div className="form-group">
-                      <label htmlFor="email">Email:</label>
+                      <label for='email' >Email:</label>
                       <input
                         autoComplete="email"
                         type="email"
                         name="email"
                         onChange={this.handleChange}
                         value={this.state.email}
+                        id='email'
                       />
                     </div>
                     
                     <div className="form-group">
-                      <label htmlFor="password">Password:</label>
+                      <label for='password' >Password:</label>
                       <input
                         autoComplete="new-password"
                         type="password"
                         name="password"
                         onChange={this.handleChange}
                         value={this.state.password}
+                        id='password'
                       />
                     </div>
                     <div className="form-group">

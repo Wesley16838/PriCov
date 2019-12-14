@@ -31,6 +31,7 @@ class App extends Component {
   }
   //
   componentWillMount() {
+    console.log('willmount in app.js')
     firebase.auth.onAuthStateChanged(user => {
       if (user) {
         this.setState({

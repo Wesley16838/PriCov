@@ -63,12 +63,12 @@ class Getdashboard extends Component {
 
         return (
             <Query query={FEED_QUERY} variables={{ email:this.state.email, keyword:this.state.key }}>
-                {({ loading, error, data }) => {
+                {({ loading, error, data,refetch }) => {
                     if (loading) return <div>Fetching</div>
                     if (error) return <div>Error</div>
-             
-                    const history = data.findHistory
-
+                    
+                    var history = data.findHistory
+                    refetch().then(data => history = data)
                     console.log('findhistory',history)
 
                     let obj = {

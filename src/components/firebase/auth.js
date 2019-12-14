@@ -51,8 +51,20 @@ async function doSignOut() {
 
   await auth.signOut();
 }
-async function removeUser(){
-  await auth.currentUser.delete();
+async function removeUser(password){
+ 
+  var user = auth.currentUser;
+
+  var credential = await firebase.auth.EmailAuthProvider.credential(
+    user.email, 
+    password
+  );
+
+  console.log('af credential')
+  await user.reauthenticateWithCredential(credential)
+  console.log('af reauth')
+  await user.delete()
+  console.log('af delete')
 }
 
 export {

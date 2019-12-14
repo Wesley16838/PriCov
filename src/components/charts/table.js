@@ -82,7 +82,7 @@ class Table extends React.Component{
                 if(d.column == 'Url'){
                     
                    
-                    return "<a target=\"_blank\" href="+ d.value +"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAHaADAAQAAAABAAAAHQAAAAD9szRrAAADOUlEQVRIDZ1WzVXbQBDeWSQnt9BBdIi5xh3gDlAHMZcAp5gOSAU4JyAXnAoQFQAdcMa8F7mCkBuRhCbfrLOKtPqz2ffs0fzsfprfFak1VnDGgU/pnlIUijmRGgtlpZ7wdw/+CdIoGWxdx/uE5+5FXerhdx6pPDu1IF22VsfM85T9r/ERxVbm0lbQ4Xk6A9gXd8M6vIlATseLI2/eZF8DDS552/+TXZW9wyG/EcyIlI6SfOveerEKezZteznxenE42HeBK6AGMElvSNHIGjKrb+kb76QtVx/O0rHW6sbau7QJWJeN/CSDN/8Bc8XHi0N/2gYoe2EfgLQuIppIqsoGBajJoVK7VomQ3j0eDCrGVlehOh9X+AZGwr9zkYVWZUClSmt5yWlujdqopAO+opX6Fyu+XNkrtfKUs5pH6dutqO8o7zkboSgA3L/EbpBkU7HUUoEQFGG127vyaG0ej/xbDIdry/dRpMy0oPZ0GvYZu3p50UJG/WmwtuKtpFKj+hpBy4m3m4QOL5L5QGc/h+eJyVGu8qCs73smzsKiel1j9FfjNMJLfhJbaQXk6JdWdOru7eLR99vwtJ7P1aFqPDzLJu4BMixc2UY8qRHtXKTIb/vinPbdGSo5HeiXEUYjfquFlgjgfwgn3llZEwXYHUCTGMbvmwysDN7dsqLZ46HXWamm3/N0jth/tHtdKqAah8WuwuVl+GviSKKC34mrt/ziM90n7Ic4GBdEy8L9i0LiuEX9KvHqBuKobTMTxygk3WrQtBG522uSl2Wo8LjMl5+z3I/0w4EXdYajvAPPOHAkPeqI12R5KZEwfYqKm625y5hJjyK3V5XJVD6AVVHVFXGuT4Q3oA8HPhheimCDFWIyTVx7uUmYmnqfl7b1ShNJT90DXsP7zy/Sq9vuXiY/tLICVHIrXwpW8Rpq7kvNtbFoBgzayZ5ZgIpAvhRQnT+schMqgL75vqp62TTREIn62uDzE1+H3jFG4i5eduaGtQlQ0BpBRSFXGw6aw6BzloptffEyz2liLvm6sh1UbCVk8omBPp6uB85LRlvYKm3AM6JWT90NZpjjAob3AQKE37+FWSqjTSaN/Qi3qjb6F5tIVD8T3j+SAAAAAElFTkSuQmCC\"/></a>"
+                    return "<a target=\"_blank\" href="+ d.value +"><p class=\"displayNone\">External link</p><img alt=\"External link\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAHaADAAQAAAABAAAAHQAAAAD9szRrAAADOUlEQVRIDZ1WzVXbQBDeWSQnt9BBdIi5xh3gDlAHMZcAp5gOSAU4JyAXnAoQFQAdcMa8F7mCkBuRhCbfrLOKtPqz2ffs0fzsfprfFak1VnDGgU/pnlIUijmRGgtlpZ7wdw/+CdIoGWxdx/uE5+5FXerhdx6pPDu1IF22VsfM85T9r/ERxVbm0lbQ4Xk6A9gXd8M6vIlATseLI2/eZF8DDS552/+TXZW9wyG/EcyIlI6SfOveerEKezZteznxenE42HeBK6AGMElvSNHIGjKrb+kb76QtVx/O0rHW6sbau7QJWJeN/CSDN/8Bc8XHi0N/2gYoe2EfgLQuIppIqsoGBajJoVK7VomQ3j0eDCrGVlehOh9X+AZGwr9zkYVWZUClSmt5yWlujdqopAO+opX6Fyu+XNkrtfKUs5pH6dutqO8o7zkboSgA3L/EbpBkU7HUUoEQFGG127vyaG0ej/xbDIdry/dRpMy0oPZ0GvYZu3p50UJG/WmwtuKtpFKj+hpBy4m3m4QOL5L5QGc/h+eJyVGu8qCs73smzsKiel1j9FfjNMJLfhJbaQXk6JdWdOru7eLR99vwtJ7P1aFqPDzLJu4BMixc2UY8qRHtXKTIb/vinPbdGSo5HeiXEUYjfquFlgjgfwgn3llZEwXYHUCTGMbvmwysDN7dsqLZ46HXWamm3/N0jth/tHtdKqAah8WuwuVl+GviSKKC34mrt/ziM90n7Ic4GBdEy8L9i0LiuEX9KvHqBuKobTMTxygk3WrQtBG522uSl2Wo8LjMl5+z3I/0w4EXdYajvAPPOHAkPeqI12R5KZEwfYqKm625y5hJjyK3V5XJVD6AVVHVFXGuT4Q3oA8HPhheimCDFWIyTVx7uUmYmnqfl7b1ShNJT90DXsP7zy/Sq9vuXiY/tLICVHIrXwpW8Rpq7kvNtbFoBgzayZ5ZgIpAvhRQnT+schMqgL75vqp62TTREIn62uDzE1+H3jFG4i5eduaGtQlQ0BpBRSFXGw6aw6BzloptffEyz2liLvm6sh1UbCVk8omBPp6uB85LRlvYKm3AM6JWT90NZpjjAob3AQKE37+FWSqjTSaN/Qi3qjb6F5tIVD8T3j+SAAAAAElFTkSuQmCC\"/></a>"
                     
                 }else if(d.column == 'Price'){
                     
@@ -100,9 +100,9 @@ class Table extends React.Component{
                     
                 }else if(d.column == 'Product Image'){
                     if(d.value == 'NA'){
-                        return "<img style=\"width:150px; height:150px\" src =\"" + noImage + "\">"
+                        return "<img style=\"width:150px; height:150px\" alt=\"Product Image\" src =\"" + noImage + "\">"
                     }else{
-                        return "<img style=\"width:150px; height:auto\" src =\"" + d.value + "\">"
+                        return "<img style=\"width:150px; height:auto\" alt=\"Product Image\" src =\"" + d.value + "\">"
                     }
                     
                 }else{
@@ -126,7 +126,7 @@ class Table extends React.Component{
                     <div className="dashboard_body">
                         <div className="dashboard_table">
                     
-                                <h3>Product Summary (All Products)</h3>
+                                <h2>Product Summary (All Products)</h2>
                     
                         </div> 
                         <div className="bottomPieGroup">

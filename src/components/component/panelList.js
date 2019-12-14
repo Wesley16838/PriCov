@@ -56,8 +56,8 @@ componentWillMount(){
         return (
             
             <section key={next.productName}>
-            <h3>{next.productName}</h3>
-            <h4>Top 3</h4>
+            <h2>{next.productName}</h2>
+            <h3>Top 3</h3>
             <ul>
                 {li}
             </ul>
