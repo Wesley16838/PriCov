@@ -11,6 +11,7 @@
     align-items: flex-end;
     z-index: 99;
     position: relative;
+  
     h1{
         margin-bottom:0px;
         span{
@@ -18,8 +19,12 @@
             font-size: 45px;
             color: #fff;
             margin-left:16px;
+            background: #009ceb;
             a{
                 vertical-align: bottom;
+                img{
+                    width: 40px;
+                }
             }
         }
     }
@@ -113,7 +118,7 @@
         }
     table{
         .sale{
-            color:rgb(1, 197, 11);
+            color:#008a00;
         }
         .notsale{
             color:rgb(218, 0, 0);
@@ -137,9 +142,12 @@
         }
 		
     }
+    th{
+        color:rgb(0, 0, 0);
+    }
     tbody{
         background: #fff;  
-        color:rgb(133, 133, 133);
+        color:rgb(70, 70, 70);
     }
 }
 }
@@ -167,4 +175,7 @@
         display: block;
         overflow-x:scroll;
         }
+}
+.displayNone{
+    display: none;
 }

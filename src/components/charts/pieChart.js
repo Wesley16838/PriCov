@@ -55,7 +55,7 @@ class PieChart extends React.Component{
     render() {
         return  <section>
                     <div className="landing-body-second-part1">
-                        <h2>Searching Status</h2>
+                        <h3>Searching Status</h3>
                         <div className="landing-body-second-part1-status">
                             <div className="status-list">
                                 <h4>{Object.keys(this.state.data)[0]}</h4>

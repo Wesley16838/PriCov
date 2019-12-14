@@ -30,6 +30,9 @@
         width: 360px;
         height:150px;
         justify-content: space-evenly;
+        h2{
+            margin: 0px 0px 10px 0px;
+        }
         select{
             background-color: #0563af;
             color: white;
@@ -68,6 +71,12 @@
         background-color: rgba(255, 255, 255, 0);
         padding: 0;
         transition: ease .3s;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img{
+            margin-right:10px; 
+        }
         &:hover{
             opacity: .8;
         }

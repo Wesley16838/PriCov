@@ -55,7 +55,7 @@ class DashboardPie extends React.Component{
     render() {
         return  <section>
                     <div className="Dashboard-body-second-part1">
-                        <h2>Website Proportion</h2>
+                        <h3>Website Proportion</h3>
                         <div className="Dashboard-body-second-part1-status">
                             <div className="status-list">
                                 

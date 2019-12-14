@@ -142,7 +142,7 @@ class Searchpage extends Component {
         brand:'Samsung',
         nextchoices: ['Samsung', 'LG', 'Sony', 'VIZIO','Insignia','Toshiba']
         });
-    }else if(value === 'game console'){
+    }else if(value === 'gameconsole'){
       this.setState({
       department:event.target.value,
       brand:'PS4',
@@ -187,7 +187,7 @@ class Searchpage extends Component {
             </div>
             <div className="search-body">
             {/* <button className="arrowSearchBtn" onClick={this.goback}></button> */}
-            <Link to='/home' className="arrowSearchBtn"><img src={arrow}/></Link>
+            <Link to='/home' className="arrowSearchBtn"><img src={arrow} alt='arrow'/>Go Back</Link>
             <Mutation mutation={ADD_ITEM} onCompleted={(data) => this.handleSubmit()}>
             {(webmine, { loading, error }) => (
               <div>
@@ -198,18 +198,18 @@ class Searchpage extends Component {
            
               <h1>Create New Panel</h1>
               <label className='choices'>
-                <h3>Department<span>(Require)</span></h3>
+                <h2>Department<span>(Require)</span></h2>
                 <select placeholder="Department" name="department" onChange={this.handleChange}>
                   {choice.map((item,i)=>{
                     
                     return(
-                      <option key={i} value={item[Object.keys(item)].name.toLowerCase()}>{item[Object.keys(item)].name}</option>
+                      <option key={i} value={item[Object.keys(item)].name.toLowerCase().replace(' ','')}>{item[Object.keys(item)].name}</option>
                     )
                   })}
                 </select>
               </label>
               <label className='choices'>
-                <h3>Brand<span>(Require)</span></h3>
+                <h2>Brand<span>(Require)</span></h2>
                 <select placeholder="Brand" name="brand" onChange={this.handleChangeNext}>
                 {nextchoice.map((item,i)=>{
                     return(
@@ -219,7 +219,7 @@ class Searchpage extends Component {
                 </select>
               </label>
               
-                <h3>Choose Website<span>(Require)</span></h3>
+                <h2>Choose Website<span>(Require)</span></h2>
                 {this.renderCheckBox()}
                 <button className="basicBtn" type="submit" disabled={isInvalid}>Submit</button>
                 {/* <input type="submit" value="Submit" /> */}

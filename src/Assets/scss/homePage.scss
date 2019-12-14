@@ -47,9 +47,11 @@
         opacity: 1;
     }
     .text {
-        color: white;
+        color: rgb(0, 0, 0);
         font-size: 20px;
         position: absolute;
+        background: #fff;
+        padding:10px;
         top: 50%;
         left: 50%;
         -webkit-transform: translate(-50%, -50%);
@@ -80,11 +82,11 @@
         align-items: flex-start;
         justify-content: flex-start;
         position:relative;
-            h3{
+            h2{
                 margin-top:0px;
-                margin-bottom:1rem;
+                margin-bottom:0px;
             }
-            h4{
+            h3{
                 margin-top:0px;
                 margin-bottom: 0px;
             }
@@ -92,7 +94,7 @@
                 padding-left: 0px;
                 li{
                 list-style-type: none;
-                color:#898989;
+                color:#585858;
                 }          
             }   
             .panelList-console{

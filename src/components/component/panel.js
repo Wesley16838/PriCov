@@ -18,7 +18,7 @@ componentWillMount(){
         <div className="panel-button">
           <Link className="panelBtn" to='/search'>
           <div>
-              <img src={plus}></img>
+              <img src={plus} alt='plus'></img>
           </div>
           <div>Create new panel</div>
           <div className="overlay">

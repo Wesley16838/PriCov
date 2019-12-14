@@ -39,6 +39,9 @@
   width: 70%;
   border-left: none;
   height: calc(100vh - 240px); }
+  .tabcontent button:disabled {
+    color: #fff;
+    background: #444444; }
 
 /*Vars*/
 /*RWD*/
@@ -84,9 +87,12 @@ h4 {
       display: inline;
       font-size: 45px;
       color: #fff;
-      margin-left: 16px; }
+      margin-left: 16px;
+      background: #009ceb; }
       .dashboard_title h1 span a {
         vertical-align: bottom; }
+        .dashboard_title h1 span a img {
+          width: 40px; }
 
 .dashboard_body {
   margin-top: -120px;
@@ -160,7 +166,7 @@ h4 {
       border-collapse: collapse;
       text-align: center; }
       .dashboard_body .dashboard_table table .sale {
-        color: #01c50b; }
+        color: #008a00; }
       .dashboard_body .dashboard_table table .notsale {
         color: #da0000; }
     .dashboard_body .dashboard_table thead {
@@ -174,9 +180,11 @@ h4 {
       .dashboard_body .dashboard_table td img, .dashboard_body .dashboard_table th img {
         width: 20px;
         height: 20px; }
+    .dashboard_body .dashboard_table th {
+      color: black; }
     .dashboard_body .dashboard_table tbody {
       background: #fff;
-      color: #858585; }
+      color: #464646; }
 
 .productCompare .tableStatus {
   display: flex;
@@ -198,6 +206,9 @@ h4 {
 .productCompare .barchart {
   display: block;
   overflow-x: scroll; }
+
+.displayNone {
+  display: none; }
 
 /*Vars*/
 /*RWD*/
@@ -310,6 +321,9 @@ footer {
   background: #2B64FF; }
   footer .copyright {
     color: #fff; }
+    footer .copyright h2 {
+      margin: 0px;
+      font-size: 20px; }
   footer h2 {
     margin: 0px; }
 
@@ -501,9 +515,11 @@ h4 {
   .panelBtn:hover .overlay {
     opacity: 1; }
   .panelBtn .text {
-    color: white;
+    color: black;
     font-size: 20px;
     position: absolute;
+    background: #fff;
+    padding: 10px;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -530,17 +546,17 @@ h4 {
     align-items: flex-start;
     justify-content: flex-start;
     position: relative; }
-    .panelList section h3 {
+    .panelList section h2 {
       margin-top: 0px;
-      margin-bottom: 1rem; }
-    .panelList section h4 {
+      margin-bottom: 0px; }
+    .panelList section h3 {
       margin-top: 0px;
       margin-bottom: 0px; }
     .panelList section ul {
       padding-left: 0px; }
       .panelList section ul li {
         list-style-type: none;
-        color: #898989; }
+        color: #585858; }
     .panelList section .panelList-console {
       display: flex;
       flex-direction: row;
@@ -640,7 +656,9 @@ h4 {
       color: #fff;
       width: 510px;
       margin: 0 auto;
-      text-align: left; }
+      text-align: left;
+      background: #160092;
+      padding: 10px; }
     .landing-header section h1 {
       line-height: 70px; }
     .landing-header section h2 {
@@ -766,6 +784,8 @@ h4 {
     width: 360px;
     height: 150px;
     justify-content: space-evenly; }
+    .search_form .choices h2 {
+      margin: 0px 0px 10px 0px; }
     .search_form .choices select {
       background-color: #0563af;
       color: white;
@@ -793,7 +813,12 @@ h4 {
     border: none;
     background-color: rgba(255, 255, 255, 0);
     padding: 0;
-    transition: ease .3s; }
+    transition: ease .3s;
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .search-body .arrowSearchBtn img {
+      margin-right: 10px; }
     .search-body .arrowSearchBtn:hover {
       opacity: .8; }
 
