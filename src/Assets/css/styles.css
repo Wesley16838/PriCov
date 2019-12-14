@@ -786,15 +786,6 @@ h4 {
     justify-content: space-evenly; }
     .search_form .choices h2 {
       margin: 0px 0px 10px 0px; }
-    .search_form .choices select {
-      background-color: #0563af;
-      color: white;
-      padding: 12px;
-      width: 250px;
-      height: 30px;
-      border: none;
-      font-size: 20px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); }
   .search_form input[type=checkbox] {
     margin-right: 16px; }
   .search_form input[type=submit] {
