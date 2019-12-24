@@ -1,0 +1,7 @@
+{
+    "mongoConfig": {
+      "serverUrl": "mongodb+srv://wesley16838:WESLEY16838@cluster0-1zket.mongodb.net/test?retryWrites=true&w=majority",
+      "database": "Pricov"
+    }
+  }
+  
