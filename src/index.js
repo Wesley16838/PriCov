@@ -1,7 +1,7 @@
 const { ApolloServer, gql } = require('apollo-server-express');
 const express = require('express');
 const db = require('./db');
-
+var cors = require('cors');
 var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
 const axios = require('axios');
@@ -221,6 +221,7 @@ const resolvers = {
 
 const server = new ApolloServer({ typeDefs, resolvers });
 server.applyMiddleware({app})  
+app.use(cors());
 app.use('/graphql', graphqlHTTP({
     schema: typeDefs,
     rootValue: resolvers,
