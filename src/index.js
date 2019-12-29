@@ -1,24 +1,71 @@
-const { GraphQLServer } = require('graphql-yoga')
-const db = require('./db')
-const dbf = db.dbfunction
-const minf = db.miningfunction
-const fs = require('fs')
-const axios = require('axios')
+const { ApolloServer, gql } = require('apollo-server-express');
+const express = require('express');
+const db = require('./db');
+
+const axios = require('axios');
+const app = express();
+const typeDefs = gql`
+
+    type User {
+        _id: ID!
+        email: String!
+        History: [History!]
+    }
+
+    type History {
+        _id: ID!
+        title: String!
+        price: String!
+        sale: String!
+        url: String!
+        img: String!
+        user: String!
+        keyword: String!
+    }
+
+    type Statistic {
+        _id: ID!
+        website: String!
+        department: [Department!]
+    }
+
+    type Department {
+        name: String!
+        amount: Int!
+    }
 
 
+    type Query {
+        feed: [User!]
+        finduser(email: String!): User
+        findHistory(email: String, keyword: String!): [History!]
+        getstat: [Statistic!]
+    }
 
+    type Mutation {
+        adduser(email: String!): User
+        addhistory(title: String! , price: String! , sale: String! , url: String! , img: String! , user: ID! , keyword: String!): User
+        updateuser(_id: ID! , email: String!): User
+        deleteuser(email: String!): User
+        webmine(email: String!, keyword: String!, website: [String]!): User
+    }
+`;
 
 const resolvers = {
     Query: {
-
         feed: async (parents, args, context, info) => {
+          
+           
             const out = await context.dbf.getAllUser();
             console.log('out in feed');
             console.log(out);
             return out;
         },
         finduser: async (parents, args, context, info) => {
-            const target = await context.dbf.getuser(args.email)
+            const dbf = db.dbfunction;
+            console.log('args,',args);
+            console.log('context,',dbf);
+            const target = await dbf.getuser(args.email)
             console.log('target in find user')
             console.log(target)
             return target;
@@ -155,8 +202,6 @@ const resolvers = {
         History: async (parents, args, context, info) => {
             console.log("in user history")
             let out = await context.dbf.gethistorybyuser(parents._id);
-            // console.log('out bef sort')
-            // console.log(out)
             out.sort((a, b) => {
                 var ca, cb;
                 if (a.sale != 'NA') ca = a.sale;
@@ -169,42 +214,10 @@ const resolvers = {
             console.log(out)
             return out;
         },
-    },
-    History: {
-        _id: (parents) => parents._id,
-        title: (parents) => parents.title,
-        price: (parents) => parents.price,
-        sale: (parents) => parents.sale,
-        url: (parents) => parents.url,
-        img: (parents) => parents.img,
-        user: (parents) => parents.user,
-        keyword: (parents) => parents.keyword,
-    },
-    Statistic: {
-        _id: (parents) => parents._id,
-        website: (parents) => parents.website,
-        department: (parents) => {
-            const data = parents.department;
-            var out = new Array(0);
-            for (s in data) {
-                var obj = { name: s, amount: data[s] }
-                out.push(obj);
-            }
-            console.log('in statistic')
-            console.log(out)
-            return out;
-        }
-    },
-    Department: {
-        name: (parents) => parents.name,
-        amount: (parents) => parents.amount
     }
-}
+  };
 
-const server = new GraphQLServer({
-    typeDefs: './src/schema.graphql',
-    resolvers,
-    context: { dbf: dbf },
-})
-
-server.start(() => console.log(`Server is running on http://localhost:4000`))
+const server = new ApolloServer({ typeDefs, resolvers });
+server.applyMiddleware({app})  
+// The `listen` method launches a web server.
+app.listen({port:4000},()=>console.log(`🚀  Server ready at ${server.graphqlPath}`))
