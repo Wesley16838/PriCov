@@ -1,7 +1,7 @@
 const { ApolloServer, gql } = require('apollo-server-express');
 const express = require('express');
 const db = require('./db');
-var cors = require('cors');
+const cors = require('cors');
 var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
 const axios = require('axios');
@@ -56,70 +56,80 @@ const typeDefs = gql`
 const resolvers = {
     Query: {
         feed: async (parents, args, context, info) => {
-          
-           
-            const out = await context.dbf.getAllUser();
-            console.log('out in feed');
-            console.log(out);
+            var dbf = db.dbfunction;
+        
+            const out = await dbf.getAllUser();
+         
             return out;
         },
         finduser: async (parents, args, context, info) => {
-            const dbf = db.dbfunction;
-            console.log('args,',args);
-            console.log('context,',dbf);
+            var dbf = db.dbfunction;
+          
             const target = await dbf.getuser(args.email)
-            console.log('target in find user')
-            console.log(target)
+      
             return target;
         },
         getstat: async (parents, args, context, info) => {
-            const inserted = await context.dbf.getstatistic()
+        
+            var dbf = db.dbfunction;
+            const inserted = await dbf.getstatistic();
+        
             return inserted;
         },
         findHistory: async (parents, args, context, info) => {
-            const user = await context.dbf.getuser(args.email);
-            const targets = await context.dbf.gethistorybyuserkw(user._id, args.keyword);
+            var dbf = db.dbfunction;
+            const user = await dbf.getuser(args.email);
+            const targets = await dbf.gethistorybyuserkw(user._id, args.keyword);
             return targets;
         }
     },
     Mutation: {
 
         adduser: async (parents, args, context, info) => {
-            let out = await context.dbf.adduser(args.email)
+            var dbf = db.dbfunction;
+            let out = await dbf.adduser(args.email)
             console.log('out in adduser');
             console.log(out);
             return out
 
         },
         addhistory: async (parents, args, context, info) => {
-            let out = await context.dbf.addHistory(args.title, args.price, args.sale, args.url, args.img, args.user, args.keyword)
+            var dbf = db.dbfunction;
+            let out = await dbf.addHistory(args.title, args.price, args.sale, args.url, args.img, args.user, args.keyword)
             console.log('out in addhistory');
             console.log(out);
             return out;
         },
         updateuser: async (parents, args, context, info) => {
-            let out = await context.dbf.updateuser(args._id, args.email);
+            var dbf = db.dbfunction;
+            let out = await dbf.updateuser(args._id, args.email);
             console.log('out in updateuser');
             console.log(out);
             return out;
         },
         deleteuser: async (parents, args, context, info) => {
-            let out = await context.dbf.deluser(args.email);
+            var dbf = db.dbfunction;
+            let out = await dbf.deluser(args.email);
             console.log('out in deluser');
             console.log(out);
             return out;
         },
         webmine: async (parents, args, context, info) => {
+            console.log('webmine!')
             console.log('args,',args)
-            var user = await context.dbf.getuser(args.email)
-            var todel = await context.dbf.delHistory(user._id.toString(), args.keyword)
+            var dbf = db.dbfunction;
+            console.log('1')
+            var user = await dbf.getuser(args.email)
+            console.log('2')
+            var todel = await dbf.delHistory(user._id.toString(), args.keyword)
+            console.log('3')
             for (var web = 0; web < args.website.length; web++) {
                 if (args.website[web].toLowerCase() == 'amazon') {
                     console.log('in amazon')
                     var response = await axios.get('http://localhost:3001/amazon?keyword=' + args.keyword)
                     var arr = response.data.split('\n')
                     console.log('in wibmine amazon');
-                    // console.log(arr);
+                    console.log(arr);
                     var x = 0;
                     var end = 0;
                     while (end < 10 && x < arr.length) {
@@ -129,7 +139,7 @@ const resolvers = {
                         if(obj.length < 5) continue
                         if (obj[0].length == 0 || obj[1].length == 0 || obj[2].length == 0 || obj[3].length == 0 || obj[4].length == 0) continue;
                         if (obj[1] == 'NA.NA') continue;
-                        if(!context.dbf.contains(obj[0],kw[0])) continue
+                        if(!dbf.contains(obj[0],kw[0])) continue
                         price = ''
                         sale = ''
                         if (obj[2] != 'NA') {
@@ -140,10 +150,10 @@ const resolvers = {
                             price = obj[1];
                             sale = obj[2];
                         }
-                        var addrd = await context.dbf.addHistory(obj[0], price, sale, obj[3], obj[4], user._id.toString(), args.keyword);
+                        var addrd = await dbf.addHistory(obj[0], price, sale, obj[3], obj[4], user._id.toString(), args.keyword);
                         end++;
                     }
-                    await context.dbf.addstatistic('amazon', args.keyword);
+                    await dbf.addstatistic('amazon', args.keyword);
                 }
                 else if (args.website[web].toLowerCase() == 'ebay') {
                     // Impelment py here
@@ -159,11 +169,11 @@ const resolvers = {
                         x++;
                         if(obj.length < 5) continue
                         if (obj[0].length == 0 || obj[1].length == 0 || obj[2].length == 0 || obj[3].length == 0 || obj[4].length == 0) continue;
-                        if(!context.dbf.contains(obj[0],kw[0])) continue
-                        var addrd = await context.dbf.addHistory(obj[0], obj[1], obj[2], obj[3], obj[4], user._id.toString(), args.keyword);
+                        if(!dbf.contains(obj[0],kw[0])) continue
+                        var addrd = await dbf.addHistory(obj[0], obj[1], obj[2], obj[3], obj[4], user._id.toString(), args.keyword);
                         end++;
                     }
-                    await context.dbf.addstatistic('ebay', args.keyword);
+                    await dbf.addstatistic('ebay', args.keyword);
                     console.log('Ebay!');
                 }
                 else if (args.website[web].toLowerCase() == 'bestbuy') {
@@ -181,21 +191,21 @@ const resolvers = {
                         x++;
                         if(obj.length < 5) continue
                         if (obj[0].length == 0 || obj[1].length == 0 || obj[2].length == 0 || obj[3].length == 0 || obj[4].length == 0) continue;
-                        if(!context.dbf.contains(obj[0],kw[0])) continue
-                        var addrd = await context.dbf.addHistory(obj[0], obj[1], obj[2], obj[3], obj[4], user._id.toString(), args.keyword);
+                        if(!dbf.contains(obj[0],kw[0])) continue
+                        var addrd = await dbf.addHistory(obj[0], obj[1], obj[2], obj[3], obj[4], user._id.toString(), args.keyword);
                         end++;
                     }
-                    await context.dbf.addstatistic('bestbuy', args.keyword);
+                    await dbf.addstatistic('bestbuy', args.keyword);
                     console.log('Best Buy!');
                 }
                 else {
                     // Impelment py here
-                    await context.dbf.addstatistic('other', args.keyword);
+                    await dbf.addstatistic('other', args.keyword);
                     console.log('Other!')
                 }
             }
 
-            return await context.dbf.getuser(args.email)
+            return await dbf.getuser(args.email)
         }
     },
     User: {
@@ -203,7 +213,8 @@ const resolvers = {
         email: (parents) => parents.email,
         History: async (parents, args, context, info) => {
             console.log("in user history")
-            let out = await context.dbf.gethistorybyuser(parents._id);
+            var dbf = db.dbfunction;
+            let out = await dbf.gethistorybyuser(parents._id);
             out.sort((a, b) => {
                 var ca, cb;
                 if (a.sale != 'NA') ca = a.sale;
@@ -212,10 +223,38 @@ const resolvers = {
                 else cb = b.price;
                 return parseInt(ca, 10) - parseInt(cb, 10);
             })
-            console.log('out aft sort')
-            console.log(out)
+      
             return out;
         },
+    },
+    History: {
+        _id: (parents) => parents._id,
+        title: (parents) => parents.title,
+        price: (parents) => parents.price,
+        sale: (parents) => parents.sale,
+        url: (parents) => parents.url,
+        img: (parents) => parents.img,
+        user: (parents) => parents.user,
+        keyword: (parents) => parents.keyword,
+    },
+    Statistic: {
+        _id: (parents) => parents._id,
+        website: (parents) => parents.website,
+        department: (parents) => {
+            const data = parents.department;
+            var out = new Array(0);
+            for (s in data) {
+                var obj = { name: s, amount: data[s] }
+                out.push(obj);
+            }
+            console.log('in statistic')
+            console.log(out)
+            return out;
+        }
+    },
+    Department: {
+        name: (parents) => parents.name,
+        amount: (parents) => parents.amount
     }
   };
 
@@ -227,5 +266,7 @@ app.use('/graphql', graphqlHTTP({
     rootValue: resolvers,
     graphiql: true,
   }));
+
+  
 // The `listen` method launches a web server.
-app.listen({port:4000},()=>console.log(`🚀  Server ready at ${server.graphqlPath}`))
+app.listen({port:5000},()=>console.log(`🚀  Server ready at 5000`))

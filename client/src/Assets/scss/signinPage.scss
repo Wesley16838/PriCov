@@ -1,0 +1,120 @@
+@import "_config.scss";
+.signin-container{
+    background-image: url('./../img/signinpage/signin.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:100vh;
+    margin-top:-100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    section{
+      
+        height:600px;
+        background: rgba(255, 255, 255,.9);
+        box-shadow: 0px 6px 6px #00000029;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @include xxxl-width{
+            
+           width:1500px;
+        }
+        @include xxl-width{
+                
+            width:1200px
+        }
+   
+        @include xl-width{
+            width:1000px
+        }
+       
+        .signin, .signup{ 
+            width: 45%;
+            text-align: center;
+            padding:70px;
+            
+            @include xl-width{
+                padding:70px 0px;
+            }
+        }
+        .or{
+            width: 10%;
+            text-align: center;
+            padding:70px;
+            @include xxl-width{
+                
+                padding:70px 0px;
+            }
+            @include xl-width{
+                padding:0px;
+            }
+            h2{
+                position: relative;
+            }
+            h2::after{
+                content: "";
+                display: block;
+                border:1px solid #c3c3c3;
+                height: 300px;
+                position: absolute;
+                left: 55px;
+                top: 75px;
+            }
+        }
+        .signin form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .form-group{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width:300px;
+                margin-bottom: 25px;
+                &:nth-child(3){
+                    justify-content: center;
+                    margin-top: 10px;
+                }
+                input{
+                    width:200px;
+                    height: 25px;
+                    font-size:16px;
+                }
+                
+                    
+               
+            }
+        }
+        .signup form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .form-group{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width:350px;
+                margin-bottom: 25px;
+                &:last-child{
+                    justify-content: center;
+                    margin-top: 10px;
+                }
+                input{
+                    width:200px;
+                    height: 25px;
+                    font-size:16px;
+                }
+                
+                    
+               
+            }
+        }
+    }
+}
+

@@ -1,0 +1,181 @@
+@import "_config.scss";
+.dashboard{
+    width:100%;
+}
+
+.dashboard_title{
+    padding: 60px 200px 180px 200px;
+    background: #6FBBFF;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    z-index: 99;
+    position: relative;
+  
+    h1{
+        margin-bottom:0px;
+        span{
+            display: inline;
+            font-size: 45px;
+            color: #fff;
+            margin-left:16px;
+            // background: #009ceb;
+            a{
+                vertical-align: bottom;
+                img{
+                    width: 40px;
+                }
+            }
+        }
+    }
+}
+.dashboard_body{
+    margin-top:-120px;
+    padding-left: 200px;
+    padding-right: 200px;
+    background: #EAF5FF;
+    padding-bottom: 150px;
+    .bottomPieGroup{
+        // width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 55px;
+        section{
+            background: #fff;
+                border-radius: 5px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+                width:45%;
+            @include xxxl-width{
+            
+                padding:25px;
+            }
+            @include xxl-width{
+                
+                padding:20px;
+            }
+       
+            @include xl-width{
+                padding:15px;
+            }
+            
+            .Dashboard-body-second-part1{
+                h2{
+                    margin-bottom:10px;
+                    margin-top:0px;
+                }
+            }
+        }
+    }
+    .Dashboard-body-second-part1-status{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @include xl-width{
+            flex-direction: column;
+        }
+        .status-list{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 20px;
+            span{
+                margin-right: 30px;
+                @include xxxl-width{
+            
+                    margin-right: 25px;
+                }
+                @include xxl-width{
+                    
+                    margin-right: 15px;
+                }
+           
+                @include xl-width{
+                    margin-right:10px;
+                }
+               
+            }
+        }
+    }
+    .Dashboard-body-second-part2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .dashboard_table{
+        height:1600px;
+        overflow-y: scroll;
+        z-index: 999;
+        position: relative;
+        // width:100%;
+        padding:20px 20px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        h3{
+            margin-top:0px;
+            margin-bottom:15px;
+        }
+    table{
+        .sale{
+            color:#008a00;
+        }
+        .notsale{
+            color:rgb(218, 0, 0);
+        }
+        width: 100%;
+        border-collapse: collapse; 
+        text-align: center;
+    }
+    thead{ 
+        background: #F4F4F4; 
+        color: #717171; 
+        font-weight: bold; 
+        cursor: s-resize;  
+    }
+    td, th { 
+		padding:23px 15px;
+        border: 1px solid #707070;
+        img{
+            width:20px;
+            height:20px;
+        }
+		
+    }
+    th{
+        color:rgb(0, 0, 0);
+    }
+    tbody{
+        background: #fff;  
+        color:rgb(70, 70, 70);
+    }
+}
+}
+.productCompare{
+    .tableStatus{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width:100%;
+        justify-content: space-around;
+        span{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            h4{
+                margin-left:30px;
+            }
+        }
+    }
+    h2{
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+    .barchart{
+        display: block;
+        overflow-x:scroll;
+        }
+}
+.displayNone{
+    display: none;
+}

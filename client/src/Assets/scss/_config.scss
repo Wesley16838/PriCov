@@ -1,0 +1,73 @@
+/*Vars*/
+$white:#fff;
+$black:#000;
+$darkgray:#4A4A4A;
+$lightgray:#818181;
+$blue:#2B64FF;
+
+/*RWD*/
+$xs:0;
+$sm:576px;
+$md:768px;
+$lg:992px;
+$xl:1200px; //laptop 要照顧 1280 / 1366 / 1440
+$xxl:1480px; //大螢幕 要照顧 1680 / 1920
+$xxxl:1680px;
+//xxxl
+@mixin xxxl-width() {
+    @media all and (min-width: $xxxl) {
+                 @content;
+           }
+      }
+//xxl
+@mixin xxl-width() {
+    @media all and (min-width: $xxl)and (max-width: $xxxl) {
+                 @content;
+           }
+      }
+//xl
+@mixin xl-width() {
+  @media all and (max-width: $xxl) {
+                  @content;
+            }
+  }
+
+/*Mixins*/
+@mixin translateY($e) {
+    -webkit-transform: translateY($e);
+    -moz-transform: translateY($e);
+    transform: translateY($e)
+}
+
+@mixin transition($e) {
+    -webkit-transition: $e;
+    -moz-transition: $e;
+    transition: $e;
+}
+
+html{
+    font-size: 16px;
+}
+
+/*General Setting*/
+body{
+    font-family: 'Roboto','Open Sans', sans-serif;
+    font-size:16px;
+}
+a{
+    text-decoration-line: none;
+    cursor:pointer;
+}
+
+h1{
+    font-size:60px;
+}
+h2{
+    font-size:45px;
+}
+h3{
+    font-size:36px;
+}
+h4{
+    font-size:20px;
+}

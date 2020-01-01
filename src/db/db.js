@@ -10,7 +10,7 @@ async function getuser(email){
     console.log('get user')
     const userCollection = await users();
     const target = await userCollection.findOne({ email: email });
-    console.log('target,',target)
+    // console.log('target,',target)
     if(target === null) throw 'user not found!';
 
     return target;
@@ -170,10 +170,11 @@ async function delHistory(user , keyword) {
 
 //Statistics
 async function getstatistic(){
+    console.log('get statistic');
     const statisticsCollection = await statistics();
     const targets = await statisticsCollection.find().toArray();
+    console.log('statistic target,',targets)
     if(targets === null) throw 'user not found!';
-
     return targets;
 }
 

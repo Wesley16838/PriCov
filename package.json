@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "node src/index.js",
+    "server":"nodemon src/index.js",
+    "client":"npm start --prefix client",
+    "pyserver":"npm start --prefix py-backend",
+    "dev":"concurrently \"npm run server\" \"npm run client\" \"npm run pyserver\""
   },
   "repository": {
     "type": "git",
@@ -25,6 +29,7 @@
     "axios": "^0.19.0",
     "bluebird": "^3.7.1",
     "child_process": "^1.0.2",
+    "concurrently": "^5.0.2",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "fs": "0.0.1-security",
