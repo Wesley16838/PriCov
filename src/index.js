@@ -272,6 +272,6 @@ app.use(express.static('public'));
 app.get('*',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'public','index.html'))
 })
-
+const PORT = process.env.PORT || 5000;
 // The `listen` method launches a web server.
-app.listen({port:5000},()=>console.log(`🚀  Server ready at 5000`))
+app.listen({port:PORT},()=>console.log(`🚀  Server ready at 5000`))
