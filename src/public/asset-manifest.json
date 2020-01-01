@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Wesley16838/PriCov/static/css/main.fccbc1be.chunk.css",
+    "main.js": "/Wesley16838/PriCov/static/js/main.89c1852e.chunk.js",
+    "main.js.map": "/Wesley16838/PriCov/static/js/main.89c1852e.chunk.js.map",
+    "runtime-main.js": "/Wesley16838/PriCov/static/js/runtime-main.4f89dd36.js",
+    "runtime-main.js.map": "/Wesley16838/PriCov/static/js/runtime-main.4f89dd36.js.map",
+    "static/js/2.be8e5da3.chunk.js": "/Wesley16838/PriCov/static/js/2.be8e5da3.chunk.js",
+    "static/js/2.be8e5da3.chunk.js.map": "/Wesley16838/PriCov/static/js/2.be8e5da3.chunk.js.map",
+    "index.html": "/Wesley16838/PriCov/index.html",
+    "precache-manifest.e0aad697e21d21f9376dd1b10782660a.js": "/Wesley16838/PriCov/precache-manifest.e0aad697e21d21f9376dd1b10782660a.js",
+    "service-worker.js": "/Wesley16838/PriCov/service-worker.js",
+    "static/css/main.fccbc1be.chunk.css.map": "/Wesley16838/PriCov/static/css/main.fccbc1be.chunk.css.map",
+    "static/media/google.svg": "/Wesley16838/PriCov/static/media/google.4a2ea2af.svg",
+    "static/media/styles.min.css": "/Wesley16838/PriCov/static/media/signin.1289f105.png",
+    "static/media/noImage1.png": "/Wesley16838/PriCov/static/media/noImage1.afbc08f4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4f89dd36.js",
+    "static/js/2.be8e5da3.chunk.js",
+    "static/css/main.fccbc1be.chunk.css",
+    "static/js/main.89c1852e.chunk.js"
+  ]
+}

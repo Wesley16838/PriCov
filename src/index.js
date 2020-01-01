@@ -2,6 +2,7 @@ const { ApolloServer, gql } = require('apollo-server-express');
 const express = require('express');
 const db = require('./db');
 const cors = require('cors');
+const path = require('path')
 var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
 const axios = require('axios');
@@ -266,7 +267,10 @@ app.use('/graphql', graphqlHTTP({
     rootValue: resolvers,
     graphiql: true,
   }));
+app.use(express.statis('public'));
+app.get('*',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'public','index.html'))
+})
 
-  
 // The `listen` method launches a web server.
 app.listen({port:5000},()=>console.log(`🚀  Server ready at 5000`))
