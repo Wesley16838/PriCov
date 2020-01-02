@@ -8,10 +8,13 @@ url='https://www.amazon.com/s?k='+sys.argv[1]+'+'+sys.argv[2]
 #url='https://www.amazon.com/s?k='+'apple'+'+'+'phone'
 
 #open the browser and visit the url
-# chrome_options = webdriver.ChromeOption()
-# chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.add_arguement("--headless")
+chrome_options.add_arguement("--disable-dev-shm-usage")
+chrome-options.add_arguement("--no-sandbox")
 
-driver = webdriver.Chrome('./chromedriver')
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER PATH", chrome_options = chrome_options))
 driver.get(url)
 
 #find all elements with a class that ends in 'tweet-text'
