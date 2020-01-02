@@ -2,10 +2,10 @@
   "name": "pricov-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/index.js",
-    "server":"nodemon src/index.js",
+    "start": "node server.js",
+    "server":"nodemon server.js",
     "client":"npm start --prefix client",
     "pyserver":"npm start --prefix py-backend",
     "dev":"concurrently \"npm run server\" \"npm run client\" \"npm run pyserver\""
