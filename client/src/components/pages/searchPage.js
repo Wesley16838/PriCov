@@ -233,7 +233,7 @@ class Searchpage extends Component {
               {/* </Mutation> */}
               </form>
                {loading && <p>Loading...</p>}
-               {error && <p>Error :( Please try again</p>}
+               {error => {console.log('error,',error); return <p>Error :( Please try again</p> } }
                 </div>
               )}
             </Mutation>
