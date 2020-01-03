@@ -131,7 +131,7 @@ const resolvers = {
                         // 'http://localhost:3001/amazon?keyword=' + args.keyword
                         method:"get",
                         url:"/amazon?keyword=" + args.keyword,
-                        baseURL : process.env.baseURL || "http://localhost:3001"
+                        baseURL : process.env.baseURL || "https://pricov.herokuapp.com"
                     })
                     var arr = response.data.split('\n')
                     console.log('in wibmine amazon');
@@ -279,4 +279,4 @@ app.get('*',(req,res)=>{
 })
 const PORT = process.env.PORT || 5000;
 // The `listen` method launches a web server.
-app.listen({port:PORT},()=>console.log(`🚀  Server ready at 5000`))
+app.listen(PORT,()=>console.log(`🚀  Server ready at 5000`))

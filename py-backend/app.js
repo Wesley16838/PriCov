@@ -60,6 +60,6 @@ app.get('/ebay', async (req , res) => {
     });
 });
 const PORT = process.env.PORT || 3001;
-app.listen({port:PORT}, function () {
+app.listen(PORT, function () {
   console.log('server running on port 3001');
 })
