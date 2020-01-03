@@ -127,12 +127,16 @@ const resolvers = {
             for (var web = 0; web < args.website.length; web++) {
                 if (args.website[web].toLowerCase() == 'amazon') {
                     console.log('in amazon')
-                    var response = await axios({
-                        // 'http://localhost:3001/amazon?keyword=' + args.keyword
-                        method:"get",
-                        url:"/amazon?keyword=" + args.keyword,
-                        baseURL : process.env.baseURL || "https://pricov.herokuapp.com"
-                    })
+                    // var response = await axios({
+                    //     // 'http://localhost:3001/amazon?keyword=' + args.keyword
+                    //     method:"get",
+                    //     url:"/amazon?keyword=" + args.keyword,
+                    //     baseURL : process.env.baseURL || "https://pricov.herokuapp.com"
+                    // })
+                     var response = await axios.get(
+                         'https://pricov.herokuapp.com/amazon?keyword=' + args.keyword
+                     
+                    )
                     var arr = response.data.split('\n')
                     console.log('in wibmine amazon');
                     console.log(arr);
