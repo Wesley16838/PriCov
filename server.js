@@ -138,8 +138,8 @@ const resolvers = {
                      
                     )
                     var arr = response.data.split('\n')
-                    console.log('in wibmine amazon');
-                    console.log(arr);
+                    
+                    console.log('arr,',arr);
                     var x = 0;
                     var end = 0;
                     while (end < 10 && x < arr.length) {
