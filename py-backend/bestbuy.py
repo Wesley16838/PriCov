@@ -12,8 +12,13 @@ numset = {'0','1','2','3','4','5','6','7','8','9'}
 
 url='https://www.bestbuy.com/site/searchpage.jsp?st='
 key=sys.argv[1]+'+'+sys.argv[2]
-#key='apple+laptop'
-driver = webdriver.Chrome('./chromedriver')
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.add_arguement("--headless")
+chrome_options.add_arguement("--disable-dev-shm-usage")
+chrome-options.add_arguement("--no-sandbox")
+
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER PATH", chrome_options = chrome_options))
 driver.get(url+key)
 
 pageNum=1 # number of pages to collect
