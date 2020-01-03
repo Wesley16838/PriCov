@@ -133,7 +133,7 @@ const resolvers = {
                     //     baseURL : process.env.baseURL || "https://pricov.herokuapp.com:3001"
                     // })
                      var response = await axios.get(
-                         'http://localhost:3001/amazon?keyword=' + args.keyword
+                         'https://pricovmining.herokuapp.com/amazon?keyword=' + args.keyword
                      
                     )
                     var arr = response.data.split('\n')
@@ -166,7 +166,7 @@ const resolvers = {
                 }
                 else if (args.website[web].toLowerCase() == 'ebay') {
                     // Impelment py here
-                    var response = await axios.get('http://localhost:3001/ebay?keyword=' + args.keyword)
+                    var response = await axios.get('https://pricovmining.herokuapp.com/ebay?keyword=' + args.keyword)
                     var arr = response.data.split('\n')
                     var kw = args.keyword.split('+')
                     console.log('in wibmine ebay');
@@ -188,7 +188,7 @@ const resolvers = {
                 else if (args.website[web].toLowerCase() == 'bestbuy') {
                     console.log('in bestbuy')
                     // Impelment py here
-                    var response = await axios.get('http://localhost:3001/bestbuy?keyword=' + args.keyword)
+                    var response = await axios.get('https://pricovmining.herokuapp.com/bestbuy?keyword=' + args.keyword)
                     var arr = response.data.split('\n')
                     var kw = args.keyword.split('+')
                     console.log('in wibmine bestbuy');
