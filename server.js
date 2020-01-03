@@ -127,7 +127,7 @@ const resolvers = {
             for (var web = 0; web < args.website.length; web++) {
                 if (args.website[web].toLowerCase() == 'amazon') {
                     console.log('in amazon')
-                    var response = await axios.get('http://localhost:3001/amazon?keyword=' + args.keyword)
+                    var response = await axios.get('/amazon?keyword=' + args.keyword)
                     var arr = response.data.split('\n')
                     console.log('in wibmine amazon');
                     console.log(arr);

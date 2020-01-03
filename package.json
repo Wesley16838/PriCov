@@ -42,5 +42,6 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.7.7"
-  }
+  },
+  "proxy":"http://localhost:3001"
 }
