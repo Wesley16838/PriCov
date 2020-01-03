@@ -134,7 +134,7 @@ const resolvers = {
                     //     baseURL : process.env.baseURL || "https://pricov.herokuapp.com:3001"
                     // })
                      var response = await axios.get(
-                         'pricov.herokuapp.com/amazon?keyword=' + args.keyword
+                         'https://pricov.herokuapp.com/amazon?keyword=' + args.keyword
                      
                     )
                     var arr = response.data.split('\n')
