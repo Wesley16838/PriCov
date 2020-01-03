@@ -2,7 +2,7 @@ var express = require('express');
 var spawn = require('child_process').spawn;
 const fs = require('fs')
 var PythonShell = require('python-shell');
-
+const cors = require('cors');
 var app = express();
 
 app.get('/amazon', async (req , res) => {
@@ -60,6 +60,7 @@ app.get('/ebay', async (req , res) => {
     });
 });
 const PORT = process.env.PORT || 3001;
+app.use(cors());
 app.listen(PORT, function () {
   console.log('server running on port 3001');
 })
