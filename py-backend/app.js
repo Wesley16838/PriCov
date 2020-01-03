@@ -59,7 +59,7 @@ app.get('/ebay', async (req , res) => {
         res.send(data.toString());
     });
 });
-
-app.listen(3001, function () {
+const PORT = process.env.PORT || 3001;
+app.listen({port:PORT}, function () {
   console.log('server running on port 3001');
 })
