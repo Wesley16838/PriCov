@@ -128,13 +128,12 @@ const resolvers = {
                 if (args.website[web].toLowerCase() == 'amazon') {
                     console.log('in amazon')
                     // var response = await axios({
-                    //     // 'http://localhost:3001/amazon?keyword=' + args.keyword
                     //     method:"get",
                     //     url:"/amazon?keyword=" + args.keyword,
                     //     baseURL : process.env.baseURL || "https://pricov.herokuapp.com:3001"
                     // })
                      var response = await axios.get(
-                         '/amazon?keyword=' + args.keyword
+                         'http://localhost:3001/amazon?keyword=' + args.keyword
                      
                     )
                     var arr = response.data.split('\n')
