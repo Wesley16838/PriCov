@@ -230,5 +230,41 @@ $duration: 1.4s;
   justify-content: center;
 }
 
+.square {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background-color: #4b9cdb;
+}
+.loadContainer{
+  width:100vw;
+  height:100vh;
+  z-index: 9999;
+  position:absolute;
+  left:0px;
+  top:0px;
+  background: rgba(60, 60, 60, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .square-holder{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .square {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      background-color: #4b9cdb;
+      animation: loadingG 1.5s cubic-bezier(.17,.37,.43,.67) infinite;
+    }
+  }
+}
 
-
+@keyframes loadingG {
+  0% {transform: translate(0,0) rotate(0deg);}
+  50% {transform: translate(70px,0) rotate(360deg);}
+  100% {transform: translate(0,0) rotate(0deg);}
+}
