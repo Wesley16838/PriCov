@@ -240,10 +240,10 @@ $duration: 1.4s;
   width:100vw;
   height:100vh;
   z-index: 9999;
-  position:absolute;
+  position: fixed;;
   left:0px;
   top:0px;
-  background: rgba(60, 60, 60, 0.6);
+  background: rgba(40, 40, 40, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,7 +257,7 @@ $duration: 1.4s;
       width: 12px;
       height: 12px;
       border-radius: 4px;
-      background-color: #4b9cdb;
+      background-color: #ffffff;
       animation: loadingG 1.5s cubic-bezier(.17,.37,.43,.67) infinite;
     }
   }

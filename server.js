@@ -136,6 +136,10 @@ const resolvers = {
                          'https://pricovmining.herokuapp.com/amazon?keyword=' + args.keyword
                      
                     )
+                //     var response = await axios.get(
+                //         'http://localhost:3001/amazon?keyword=' + args.keyword
+                    
+                //    )
                     var arr = response.data.split('\n')
                     
                     console.log('arr,',arr);
