@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route,NavLink } from "react-router-dom
 import Getstatus from'./../charts/Getstatus'
 import Getstatistic from'./../charts/Getstatistic'
 import LineChart from './../charts/linechart'
+
 class Landingpage extends Component {
   constructor(props){
     super(props);
@@ -19,7 +20,7 @@ class Landingpage extends Component {
   render() {
     return(
       <div className="container">
-
+       
         <div className="landing-header">
           <section>
             <h1>PriCov visualizes price comparison</h1>
