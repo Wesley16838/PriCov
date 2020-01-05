@@ -19,7 +19,7 @@ import './Assets/js/scripts.min.js'//js file
 import { firebase } from "./components/firebase";
 import { thisExpression } from '@babel/types';
 import image from './Assets/img/logo/page.png'
-import MetaTags from 'react-meta-tags';
+
 const client = new ApolloClient({
     uri:'/graphql'
 })
@@ -88,14 +88,13 @@ class App extends Component {
     }
     return(
       <ApolloProvider client={client}>
-       <MetaTags>
-            <meta property="og:description" content="Visualize real-time data from e-commerce!"/>
-            <meta property="og:image" content={image}/>
-            
-        
-          </MetaTags>
+     
       <Router>
          <div className="App">
+         <Helmet>
+            <meta name="description" content="Visualize data from e-commerce website" />
+            <meta name="image" content={image} />
+          </Helmet>
           <Header email={this.state.email}/>
           <Switch>
             <Route exact path="/" render={(props) => <Landingpage {...props} email={this.state.email} title="PriCov"/>}/>
