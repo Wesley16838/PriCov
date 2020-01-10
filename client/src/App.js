@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route, Link ,Redirect} from "react-router-dom"
 import ApolloClient from 'apollo-boost';
+import Helmet from 'react-helmet';
 import {ApolloProvider} from 'react-apollo';
 //components
 import Header from './components/headerComponent/header'
