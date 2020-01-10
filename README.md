@@ -1,4 +1,4 @@
-# PriCov
+# <a href="https://pricovfrontend.herokuapp.com/" target="_blank">PriCov</a>
 
 > Price Comparison Visualization
 
@@ -30,7 +30,7 @@
 ## Installation
 ### Clone
 
-- Clone this repo to your local machine using `https://github.com/Wesley16838/PriCov.git`
+- Clone this repo to your local machine using `https://https://github.com/Wesley16838/PriCov-Backend.git`
 
 ### Setup
 
@@ -38,7 +38,7 @@
 > and run the code in the terminal as follows:
 ```shell
 $ npm i
-$ npm run div
+$ npm run dev
 ```
 
 
@@ -74,7 +74,7 @@ Password:123456
 
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2020 © <a href="http://localhost:3000" target="_blank">PriCov</a>.
+- Copyright 2020 © <a href="https://pricovfrontend.herokuapp.com/" target="_blank">PriCov</a>.
 
 
 
