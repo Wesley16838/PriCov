@@ -80,7 +80,7 @@ class Searchpage extends Component {
     document.title = this.props.title
   }
   renderCheckBox(){///
-    const websites = ['Amazon','BestBuy','Ebay']
+    const websites = ['Amazon','Ebay']
     return websites.map((website,i)=>{
       return(
         <label key={i}>
