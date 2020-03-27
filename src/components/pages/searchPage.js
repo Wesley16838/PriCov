@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route,NavLink } from "react-router-dom"
+import SignOutButton from "../component/signout"
+import UprightBarChart from "../charts/uprightBarChart"
+import PriceTable from "../charts/priceTable"
 import {
     withRouter
   } from 'react-router-dom'
@@ -158,14 +161,10 @@ class Searchpage extends Component {
     brand:event.target.value,
     })
   }
-  handleSubmit() {
-    
-    // alert('Your favorite flavor is: ' + this.state.websites);
-    
-    this.props.history.push('/dashboard/'+this.state.brand+'+'+this.state.department);
-  }
-  goback(e) {
-    this.props.history.goBack();
+  handleSubmit(event) {
+    console.log('this.state.websites',this.state.websites)
+    alert('Your favorite flavor is: ' + this.state.brand + this.state.department+this.state.websites);
+    event.preventDefault();
   }
   // goNext(e) {
   //   this.props.history.push('/dashboard');
@@ -238,7 +237,11 @@ class Searchpage extends Component {
               )}
             </Mutation>
             </div>
-      
+            {/* <div class="priceTable">
+              <UprightBarChart/>
+              <PriceTable/>
+            </div> */}
+            
           </div>
             
       

@@ -23,33 +23,46 @@ class Getstatus extends Component {
     this.state = {
     }
   }
-  
+ 
   render() {
-    return (
-      <Query query={FEED_QUERY}>
-        {({ loading, error, data }) => {
-          if (loading) return <div>Fetching</div>
-          if (error) return <div>Error</div>
+    var obj1 = {
+      amazon:20,
+      bestbuy:16,
+      target:8
+    }
+    var obj2 = {
+      amazon:20,
+      bestbuy:16,
+      target:8
+    }
+    return (<div>
+      <PieChart data ={obj1}/>
+      <DonutChart data = {obj2}/>
+    </div>
+      
+      // <Query query={FEED_QUERY}>
+      //   {({ loading, error, data }) => {
+      //     if (loading) return <div>Fetching</div>
+      //     if (error) return <div>Error</div>
          
-          let obj1 = {
-            amazon: 0,
-            bestbuy: 0,
-            ebay: 0
-          }
-          caltotal(data , obj1);
-          let obj2= caldep(data);
+      //     let obj1 = {
+      //       amazon: 0,
+      //       bestbuy: 0,
+      //       target: 0
+      //     }
+      //     caltotal(data , obj1);
+      //     let obj2= caldep(data);
             
        
-          return (
-            //...to be updated
+      //     return (
+      //       //...to be updated
            
+      //        <PieChart data={obj1}/>
+      //       //  <DonutChart data ={obj2}/>
              
-             <PieChart data={obj1}/>
-        
-             
-          )
-        }}
-      </Query>
+      //     )
+      //   }}
+      // </Query>
     )
   }
 }
